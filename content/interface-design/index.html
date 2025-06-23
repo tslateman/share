@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Better Programming Interface Design</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .collapsible-header {
+        cursor: pointer;
+        display: flex;
+        align-items: center; /* Vertically align items */
+        user-select: none; /* Prevent text selection on click */
+        /* margin-bottom handled by JS and .expanded-header class */
+      }
+      /* Style for sub-collapsible headers */
+      .collapsible-header.sub-header {
+        font-size: 1.5rem; /* Smaller font for sub-headers */
+        font-weight: 600; /* Semi-bold */
+        color: #1d4ed8; /* A slightly darker blue */
+        padding-bottom: 8px;
+        border-bottom: 1px solid #ebf4ff; /* Lighter border for sub-headers */
+        /* margin-bottom handled by JS and .expanded-header class */
+      }
+
+      /* Apply margin-bottom only when header is expanded */
+      .collapsible-header.expanded-header {
+        margin-bottom: 24px;
+      }
+      .collapsible-header.sub-header.expanded-header {
+        margin-bottom: 16px;
+      }
+
+      .collapsible-content {
+        max-height: 2000px; /* Increased height to prevent content cutoff */
+        overflow: hidden;
+        transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+        opacity: 1;
+      }
+      .collapsible-content.collapsed {
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.3s ease-in, opacity 0.3s ease-in;
+      }
+      .toggle-icon {
+        font-size: 2.5rem; /* Larger size for + / - icons for main headers */
+        font-weight: bold;
+        margin-right: 1rem; /* Space between icon and header text */
+        width: 1em; /* Fixed width to prevent text reflow */
+        text-align: center;
+        line-height: 1; /* Align vertically */
+        color: #0056b3; /* Match header color */
+      }
+      /* Style for sub-collapsible icons */
+      .toggle-icon.sub-icon {
+        font-size: 1.5rem; /* Smaller size for + / - icons for subheaders */
+        margin-right: 0.75rem;
+        color: #1d4ed8; /* Match sub-header color */
+      }
+
+      h2 {
+        font-size: 1.8em; /* Adjusted font size for h2 to ensure consistency with .collapsible-header */
+        color: #0056b3;
+      }
+      h3 {
+        font-size: 1.5em; /* Adjusted font size for h3 within collapsible sections */
+        color: #1d4ed8; /* Slightly darker blue for subheadings */
+        margin-top: 0; /* Remove default margin */
+        margin-bottom: 0; /* Remove default margin */
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-800 antialiased leading-relaxed">
+    <div class="container mx-auto p-4 md:p-8">
+      <header class="text-center mb-12">
+        <h1
+          class="text-4xl md:text-5xl font-extrabold text-blue-700 mb-4 rounded-lg bg-white p-4 shadow-md"
+        >
+          Better Programming Interface Design
+        </h1>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          A practical guide to building interfaces that don't suck.
+        </p>
+      </header>
+
+      <main class="space-y-6">
+        <!-- What Makes a Good Programming Interface? -->
+        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
+          <div
+            class="collapsible-header text-3xl font-bold text-blue-600"
+            data-target="content-what-makes-good"
+          >
+            <span class="toggle-icon">+</span>
+            <h2>What Makes a Good Programming Interface?</h2>
+          </div>
+          <div
+            id="content-what-makes-good"
+            class="collapsible-content collapsed"
+          >
+            <p class="text-lg mb-6">
+              A good programming interface is like a well-designed tool – it
+              should feel natural in your hand and do exactly what you expect,
+              nothing more, nothing less.
+            </p>
+          </div>
+        </section>
+
+        <!-- The SCORE Framework -->
+        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
+          <div
+            class="collapsible-header text-3xl font-bold text-blue-600"
+            data-target="content-score-framework"
+          >
+            <span class="toggle-icon">+</span>
+            <h2>The SCORE(D) Framework</h2>
+          </div>
+          <div
+            id="content-score-framework"
+            class="collapsible-content collapsed"
+          >
+            <p class="text-lg mb-6">Winning interfaces need to <b>SCORE</b>:</p>
+            <ul class="space-y-4 text-lg">
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <b>Simple:</b> Minimize choices to reduce cognitive load.
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <b>Clarity:</b> Use intuitive names, hide complexity, and avoid
+                side effects.
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <b>Operational:</b> It must function reliably and solve the
+                intended problem.
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <b>Robust:</b> Handles edge cases and remains stable under
+                stress.
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <b>Extensible:</b> Designed for reuse through loose coupling and
+                modularity.
+              </li>
+            </ul>
+            <p class="text-lg mt-6">
+              Ideally, it's also <b>Documented</b>—thus SCORED.
+            </p>
+
+            <!-- Core Principles (Moved as sub-section) -->
+            <div class="mb-6 mt-8">
+              <div
+                class="collapsible-header sub-header"
+                data-target="sub-content-core-principles"
+              >
+                <span class="toggle-icon sub-icon">+</span>
+                <h3>Core Principles</h3>
+              </div>
+              <div
+                id="sub-content-core-principles"
+                class="collapsible-content collapsed"
+              >
+                <ul class="space-y-4 text-lg">
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Clarity over cleverness:</b> The interface should reveal
+                    its purpose immediately. Method names should say what they
+                    do, parameters should be obvious, and return values
+                    predictable. A programmer shouldn't need to guess or consult
+                    documentation for basic usage.
+                  </li>
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Minimal surface area:</b> Every public method, every
+                    parameter, every configuration option is a
+                    <b>complexity burden to support</b>. Start small. You can
+                    always add, but removing is painful. A focused interface
+                    that does one thing well beats a Swiss Army knife that does
+                    everything poorly.
+                  </li>
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Fail fast and clearly:</b> When something goes wrong –
+                    and it will – the interface should tell you immediately and
+                    precisely what happened. Cryptic errors or silent failures
+                    are the enemy of productivity.
+                  </li>
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Reasonable defaults:</b> The common case should be easy,
+                    requiring minimal setup. Advanced users can always override
+                    defaults, but beginners shouldn't need to understand every
+                    option just to get started.
+                  </li>
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Composability:</b> Good interfaces play well with others.
+                    They accept and return standard types, follow common
+                    patterns, and don't force you into their particular
+                    worldview.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Advanced Qualities (Moved as sub-section) -->
+            <div class="mb-6">
+              <div
+                class="collapsible-header sub-header"
+                data-target="sub-content-advanced-qualities"
+              >
+                <span class="toggle-icon sub-icon">+</span>
+                <h3>Advanced Qualities</h3>
+              </div>
+              <div
+                id="sub-content-advanced-qualities"
+                class="collapsible-content collapsed"
+              >
+                <ul class="space-y-4 text-lg">
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Testability:</b> A good interface should be easy to test.
+                    Methods and components can be isolated and verified without
+                    excessive setup or reliance on external systems. Testability
+                    is a direct consequence of good design principles like loose
+                    coupling and clear contracts.
+                  </li>
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Discoverability:</b> A truly great interface has elements
+                    of discoverability built into its design. This means
+                    intelligent IDE auto-completion, consistent naming patterns,
+                    and logical grouping that helps developers intuit how to use
+                    it even before consulting docs.
+                  </li>
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Error Feedback Quality:</b> Error messages and exceptions
+                    should be precise, actionable, and help the developer
+                    understand why something went wrong and how to fix it,
+                    rather than just stating that it went wrong. Poor error
+                    messages can negate all other good design efforts.
+                  </li>
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Performance Transparency:</b> Interfaces should be honest
+                    about their computational costs. A method that looks simple
+                    but does O(n²) work under the hood is a trap. Users need to
+                    understand the performance implications of their choices,
+                    especially at scale.
+                  </li>
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Context Sensitivity:</b> An interface for junior
+                    developers should be different from one for experts. The
+                    same underlying functionality might need different facades
+                    for different audiences.
+                  </li>
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Idempotence (where applicable):</b> For operations that
+                    modify state, particularly in APIs, idempotence is valuable.
+                    An idempotent operation produces the same result whether
+                    it's called once or multiple times, simplifying retry logic
+                    and making systems more resilient.
+                  </li>
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Versioning Strategy:</b> Good interfaces plan for
+                    evolution from day one. How do you deprecate? How do you
+                    introduce breaking changes? The best interfaces make it easy
+                    to migrate forward.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- The Challenge: Interface Entropy -->
+        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
+          <div
+            class="collapsible-header text-3xl font-bold text-blue-600"
+            data-target="content-interface-entropy"
+          >
+            <span class="toggle-icon">+</span>
+            <h2>The Challenge: Interface Entropy</h2>
+          </div>
+          <div
+            id="content-interface-entropy"
+            class="collapsible-content collapsed"
+          >
+            <p class="text-lg mb-6">
+              Even the most well-designed programming interfaces have a natural
+              tendency to degrade in clarity, simplicity, and consistency over
+              time. This "interface entropy" manifests through:
+            </p>
+            <ul class="space-y-4 text-lg">
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <b>Feature Creep:</b> Each new requirement often leads to new
+                methods, parameters, or configuration options, gradually
+                expanding the interface's surface area beyond its original
+                minimalist intent.
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <b>Ad-hoc Additions:</b> Without strict adherence to original
+                design principles, new functionalities might be tacked on in
+                inconsistent ways, breaking established patterns and naming
+                conventions.
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <b>Organizational Changes:</b> Different teams or developers
+                contributing over time might introduce varying styles or
+                interpretations of the interface's purpose, leading to
+                fragmentation.
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <b>Technical Debt:</b> Quick fixes or compromises made under
+                pressure can accumulate, making the interface harder to
+                understand, use, and extend cleanly.
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <b>Loss of Original Intent:</b> As developers who designed the
+                initial interface move on, the nuanced understanding of why
+                certain decisions were made can be lost, making it harder to
+                maintain its integrity.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Encouraging Adoption of These Principles -->
+        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
+          <div
+            class="collapsible-header text-3xl font-bold text-blue-600"
+            data-target="content-getting-others"
+          >
+            <span class="toggle-icon">+</span>
+            <h2>Encouraging Adoption of These Principles</h2>
+          </div>
+          <div
+            id="content-getting-others"
+            class="collapsible-content collapsed"
+          >
+            <p class="text-lg mb-6">
+              The hardest part isn't knowing what good looks like - it's getting
+              a team to care about it consistently.
+            </p>
+            <ul class="space-y-4 text-lg">
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <b>Start with pain:</b> People don't follow principles because
+                they sound nice; they follow them because they've been burned.
+                When someone spends three hours debugging a cryptic error
+                message or wrestling with an inconsistent API, that's when they
+                become believers. Don't lead with theory - lead with "remember
+                last month when..."
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <b>Make the right thing easy:</b> Build templates, linters, and
+                code generation tools that naturally produce good interfaces. If
+                creating a well-designed interface takes the same effort as
+                creating a messy one, most people will take the good path. But
+                if good design requires heroic effort, it won't happen under
+                pressure.
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <b>Code review as teaching:</b> Don't just catch bugs - catch
+                interface design issues. When you see a method with five boolean
+                parameters, stop and discuss it. When error messages are vague,
+                make that a blocking comment. Use reviews to reinforce
+                principles in context, not as abstract lectures.
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <b>Lead by example, quietly:</b> Build one really good interface
+                that others interact with daily. Let them experience the
+                difference. When they say "this is so easy to use," that's your
+                opening to explain why. Show, don't tell.
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <b>Pick your battles:</b> You can't fix everything at once.
+                Choose one principle - maybe "clear error messages" - and focus
+                the whole team on that for a few months. Success breeds success.
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <b>Document the "why" relentlessly:</b> When you make interface
+                decisions, write down the reasoning. Future developers
+                (including yourself) will thank you when they're tempted to
+                break the pattern.
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Wisdom from the Masters -->
+        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
+          <div
+            class="collapsible-header text-3xl font-bold text-blue-600"
+            data-target="content-wisdom-masters"
+          >
+            <span class="toggle-icon">+</span>
+            <h2>Wisdom from the Masters</h2>
+          </div>
+          <div
+            id="content-wisdom-masters"
+            class="collapsible-content collapsed"
+          >
+            <ul class="space-y-4 text-lg italic text-gray-700">
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                "Simplicity is prerequisite for reliability." - Edsger W.
+                Dijkstra
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                "A user interface is like a joke. If you have to explain it,
+                it's not that good." - Martin LeBlanc
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                "Rule of thumb for UX: More options, more problems." - Scott
+                Belsky
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                "Programs must be written for people to read, and only
+                incidentally for machines to execute." - Harold Abelson
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                "The function of good software is to make the complex appear to
+                be simple." - Grady Booch
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                "The most important property of a program is whether it
+                accomplishes the intention of its user." - C.A.R. Hoare
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- AI and Intelligent Interfaces -->
+        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
+          <div
+            class="collapsible-header text-3xl font-bold text-blue-600"
+            data-target="content-ai-interfaces"
+          >
+            <span class="toggle-icon">+</span>
+            <h2>AI and Intelligent Interfaces</h2>
+          </div>
+          <div id="content-ai-interfaces" class="collapsible-content collapsed">
+            <p class="text-lg mb-6">
+              AI interfaces present unique challenges that amplify traditional
+              interface design principles while introducing entirely new
+              considerations. AI interfaces are still interfaces - the SCORE
+              framework applies - but with critical additions:
+            </p>
+
+            <!-- New Principles for AI Systems -->
+            <div class="mb-6">
+              <div
+                class="collapsible-header sub-header"
+                data-target="sub-content-ai-principles"
+              >
+                <span class="toggle-icon sub-icon">+</span>
+                <h3>New Principles for AI Systems</h3>
+              </div>
+              <div
+                id="sub-content-ai-principles"
+                class="collapsible-content collapsed"
+              >
+                <ul class="space-y-4 text-lg mb-6">
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Predictability vs. Adaptability Balance:</b> Traditional
+                    interfaces are deterministic; AI interfaces adapt and learn.
+                    The challenge is providing enough consistency for intuition
+                    while allowing beneficial adaptation.
+                  </li>
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Explainability as Core Interface Element:</b> "Why did
+                    you recommend this?" is as important as "What did you
+                    recommend?" The interface must make AI reasoning accessible
+                    without overwhelming users.
+                  </li>
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Graceful Degradation of Intelligence:</b> When AI fails,
+                    the interface needs elegant fallback patterns. Users should
+                    never feel trapped by AI decisions.
+                  </li>
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Trust Calibration:</b> AI can be "wrong but confident."
+                    The interface must help users develop appropriate trust –
+                    neither blind faith nor complete skepticism.
+                  </li>
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>New Error States:</b> "I don't know" and "I'm not
+                    confident" are valid interface states requiring thoughtful
+                    design.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- AI-Specific Design Considerations -->
+            <div class="mb-6">
+              <div
+                class="collapsible-header sub-header"
+                data-target="sub-content-ai-considerations"
+              >
+                <span class="toggle-icon sub-icon">+</span>
+                <h3>AI-Specific Design Considerations</h3>
+              </div>
+              <div
+                id="sub-content-ai-considerations"
+                class="collapsible-content collapsed"
+              >
+                <ul class="space-y-4 text-lg mb-6">
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>User Control & Agency:</b> Empower users with clear
+                    control over AI suggestions, easy override mechanisms, and
+                    transparent ways to manage unpredictability. Ensure AI
+                    assists, rather than replaces, human judgment.
+                  </li>
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Transparency:</b> Explain why an AI system is making a
+                    particular decision or recommendation without overwhelming
+                    users with technical complexity.
+                  </li>
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Privacy and Data Mindfulness:</b> Be conscious of data
+                    collected about users and avoid invasive personalization
+                    that feels creepy rather than helpful.
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Team Adoption for AI Interfaces -->
+            <div class="mb-6">
+              <div
+                class="collapsible-header sub-header"
+                data-target="sub-content-ai-adoption"
+              >
+                <span class="toggle-icon sub-icon">+</span>
+                <h3>Team Adoption for AI Interfaces</h3>
+              </div>
+              <div
+                id="sub-content-ai-adoption"
+                class="collapsible-content collapsed"
+              >
+                <ul class="space-y-4 text-lg">
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Build Trust Incrementally:</b> Start with AI augmenting
+                    tasks, not fully automating them. Prioritize user control
+                    with clear override paths to build trust and appropriate
+                    reliance.
+                  </li>
+                  <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                    <b>Continuous Feedback Loops:</b> Design ongoing feedback
+                    mechanisms that improve AI performance without overburdening
+                    users with constant training.
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <p class="text-lg mt-6">
+              The goal is to make AI feel like an invisible helping hand, subtly
+              improving the experience and feeling like a natural, intuitive,
+              and helpful part of the interaction.
+            </p>
+          </div>
+        </section>
+
+        <!-- Key Takeaways -->
+        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
+          <div
+            class="collapsible-header text-3xl font-bold text-blue-600"
+            data-target="content-key-takeaways"
+          >
+            <span class="toggle-icon">+</span>
+            <h2>Key Takeaways</h2>
+          </div>
+          <div id="content-key-takeaways" class="collapsible-content collapsed">
+            <ul class="space-y-4 text-lg">
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                The best interfaces disappear - you stop thinking about the
+                interface and focus on solving your actual problem. They become
+                extensions of your thought process rather than obstacles to it.
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                Steady, consistent pressure works better than passionate
+                crusades. Interface design is as much about human considerations
+                as it is about technical architecture.
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                With AI, this human element becomes even more critical - we're
+                not just designing for efficiency, but for trust, understanding,
+                and appropriate reliance on intelligent systems.
+              </li>
+            </ul>
+            <p class="text-lg mt-6">
+              Remember: Code is primarily a communication medium between humans,
+              not just instructions for machines. AI interfaces add a new
+              participant to this conversation.
+            </p>
+          </div>
+        </section>
+
+        <!-- Further Reading & Resources -->
+        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
+          <div
+            class="collapsible-header text-3xl font-bold text-blue-600"
+            data-target="content-further-reading"
+          >
+            <span class="toggle-icon">+</span>
+            <h2>Further Reading & Resources</h2>
+          </div>
+          <div
+            id="content-further-reading"
+            class="collapsible-content collapsed"
+          >
+            <ul class="space-y-4 text-lg">
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <a
+                  href="https://www.martinfowler.com/ieeeSoftware/designGuideline.pdf"
+                  target="_blank"
+                  class="text-blue-700 hover:underline font-semibold"
+                  >Design Guidelines</a
+                >
+                <p class="text-gray-700 text-base">
+                  A comprehensive article by Martin Fowler outlining principles
+                  and heuristics for good software design, emphasizing
+                  maintainability and clarity.
+                </p>
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <a
+                  href="https://www.developerdotstar.com/mag/articles/read_princprog.html"
+                  target="_blank"
+                  class="text-blue-700 hover:underline font-semibold"
+                  >Principled Programming</a
+                >
+                <p class="text-gray-700 text-base">
+                  An essay by Daniel Read, outlining core principles for
+                  software developers focusing on craftsmanship and code
+                  quality.
+                </p>
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <a
+                  href="https://www.codementor.io/@dheeraj_jha/what-are-the-qualities-of-a-good-application-programming-interface-function-22j2prnyoe"
+                  target="_blank"
+                  class="text-blue-700 hover:underline font-semibold"
+                  >Qualities of a Good Application Programming Interface
+                  (API)</a
+                >
+                <p class="text-gray-700 text-base">
+                  A practical guide discussing essential characteristics that
+                  define a well-designed and usable API, including simplicity,
+                  consistency, and robustness.
+                </p>
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <a
+                  href="https://static.googleusercontent.com/media/research.google.com/en//pubs/archive/32713.pdf"
+                  target="_blank"
+                  class="text-blue-700 hover:underline font-semibold"
+                  >How to Design a Good API and Why it Matters</a
+                >
+                <p class="text-gray-700 text-base">
+                  Taken from a Google tech talk by Joshua Bloch.
+                </p>
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <a
+                  href="https://www.developerdotstar.com/mag/articles/pugh_interface_oriented.html"
+                  target="_blank"
+                  class="text-blue-700 hover:underline font-semibold"
+                  >Interface Oriented Design</a
+                >
+                <p class="text-gray-700 text-base">
+                  Ken Pugh's article advocating for prioritizing interfaces over
+                  inheritance for flexible and maintainable software designs.
+                </p>
+              </li>
+              <li class="p-3 bg-blue-50 rounded-lg shadow-sm">
+                <a
+                  href="https://uxdesign.cc/ai-ux-design-for-intelligent-interfaces-bc966e96107d"
+                  target="_blank"
+                  class="text-blue-700 hover:underline font-semibold"
+                  >AI UX: Design for Intelligent Interfaces</a
+                >
+                <p class="text-gray-700 text-base">
+                  An article discussing the unique user experience design
+                  challenges and considerations for interfaces powered by
+                  Artificial Intelligence.
+                </p>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <footer
+        class="text-center mt-12 pt-8 border-t border-gray-300 text-gray-500 text-sm"
+      >
+        <p>
+          &copy; 2025 Programming Interface Design Principles - For Software
+          Engineers
+        </p>
+      </footer>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const headers = document.querySelectorAll(".collapsible-header");
+
+        headers.forEach((header) => {
+          const targetId = header.dataset.target;
+          const content = document.getElementById(targetId);
+          const toggleIcon = header.querySelector(".toggle-icon");
+
+          // Initialize all sections as collapsed and set icon to '+'
+          // Also ensure no margin is applied on initial collapse
+          if (content && toggleIcon) {
+            content.classList.add("collapsed");
+            toggleIcon.textContent = "+";
+            header.classList.remove("expanded-header"); // Ensure no margin
+          }
+
+          header.addEventListener("click", () => {
+            if (content && toggleIcon) {
+              content.classList.toggle("collapsed");
+              if (content.classList.contains("collapsed")) {
+                toggleIcon.textContent = "+";
+                header.classList.remove("expanded-header"); // Remove margin when collapsing
+              } else {
+                toggleIcon.textContent = "-";
+                header.classList.add("expanded-header"); // Add margin when expanding
+              }
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

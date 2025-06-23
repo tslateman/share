@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technical Debt Resources</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .resource-card {
+        transition: all 0.3s ease;
+      }
+      .resource-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      }
+      .tag {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background-color: #fef3c7;
+        color: #92400e;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 text-gray-800 antialiased leading-relaxed">
+    <div class="container mx-auto p-4 md:p-8">
+      <!-- Navigation -->
+      <nav class="mb-8">
+        <a href="../../index.html" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold">
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+          Back to Hub
+        </a>
+      </nav>
+
+      <header class="text-center mb-12">
+        <h1
+          class="text-4xl md:text-5xl font-extrabold text-orange-700 mb-4 rounded-lg bg-white p-6 shadow-md"
+        >
+          Technical Debt Resources
+        </h1>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          A curated collection of insights, strategies, and perspectives on managing technical debt in modern software development.
+        </p>
+        <div class="mt-4 space-x-2">
+          <span class="tag">#techdebt</span>
+          <span class="tag">#ai-assisted</span>
+        </div>
+      </header>
+
+      <main class="space-y-8">
+        <!-- Overview Section -->
+        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
+          <h2 class="text-3xl font-bold text-orange-600 mb-6">Understanding Technical Debt</h2>
+          <p class="text-lg text-gray-700 mb-4">
+            Technical debt is a metaphor for the implied cost of additional rework caused by choosing an easy (limited) solution now instead of using a better approach that would take longer. Like financial debt, it accumulates interest over time.
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+            <div class="bg-orange-50 p-4 rounded-lg">
+              <h3 class="font-semibold text-orange-800 mb-2">Intentional Debt</h3>
+              <p class="text-sm text-gray-700">Strategic shortcuts taken with full awareness of consequences</p>
+            </div>
+            <div class="bg-orange-50 p-4 rounded-lg">
+              <h3 class="font-semibold text-orange-800 mb-2">Unintentional Debt</h3>
+              <p class="text-sm text-gray-700">Accumulates from poor design decisions or lack of knowledge</p>
+            </div>
+            <div class="bg-orange-50 p-4 rounded-lg">
+              <h3 class="font-semibold text-orange-800 mb-2">Environmental Debt</h3>
+              <p class="text-sm text-gray-700">Results from changing requirements or technology evolution</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Resource Collections -->
+        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
+          <h2 class="text-3xl font-bold text-orange-600 mb-6">Resource Collections</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="resource-card bg-gray-50 p-6 rounded-lg border border-gray-200">
+              <div class="flex items-start justify-between mb-4">
+                <h3 class="text-xl font-semibold">Ten Articles on Tech Debt</h3>
+                <span class="text-sm text-gray-500">June 1, 2025</span>
+              </div>
+              <p class="text-gray-600 mb-4">
+                A foundational collection of articles covering the fundamentals of technical debt, from identification to management strategies.
+              </p>
+              <a href="#" class="text-orange-600 font-semibold hover:text-orange-700">Read Collection →</a>
+            </div>
+
+            <div class="resource-card bg-gray-50 p-6 rounded-lg border border-gray-200">
+              <div class="flex items-start justify-between mb-4">
+                <h3 class="text-xl font-semibold">Five More Posts on Tech Debt</h3>
+                <span class="text-sm text-gray-500">June 5, 2025</span>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Additional perspectives on technical debt, including case studies and advanced management techniques.
+              </p>
+              <a href="#" class="text-orange-600 font-semibold hover:text-orange-700">Read Collection →</a>
+            </div>
+
+            <div class="resource-card bg-gray-50 p-6 rounded-lg border border-gray-200">
+              <div class="flex items-start justify-between mb-4">
+                <h3 class="text-xl font-semibold">Managing Tech Debt</h3>
+                <span class="text-sm text-gray-500">June 1, 2025</span>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Practical strategies for tracking, prioritizing, and paying down technical debt in real-world projects.
+              </p>
+              <a href="#" class="text-orange-600 font-semibold hover:text-orange-700">Read Guide →</a>
+            </div>
+
+            <div class="resource-card bg-gray-50 p-6 rounded-lg border border-gray-200">
+              <div class="flex items-start justify-between mb-4">
+                <h3 class="text-xl font-semibold">Tech Debt in 2025</h3>
+                <span class="text-sm text-gray-500">June 14, 2025</span>
+              </div>
+              <p class="text-gray-600 mb-4">
+                Emerging trends in technical debt, including AI's impact on code quality and debt accumulation patterns.
+              </p>
+              <a href="#" class="text-orange-600 font-semibold hover:text-orange-700">Read Analysis →</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Key Concepts -->
+        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
+          <h2 class="text-3xl font-bold text-orange-600 mb-6">Key Concepts</h2>
+          <div class="space-y-6">
+            <div class="border-l-4 border-orange-500 pl-6">
+              <h3 class="text-xl font-semibold mb-2">The Debt Metaphor</h3>
+              <p class="text-gray-600">
+                Technical debt isn't inherently bad—like financial debt, it can be a strategic tool when managed properly. 
+                The key is understanding the interest rate and having a plan to pay it back.
+              </p>
+            </div>
+
+            <div class="border-l-4 border-orange-500 pl-6">
+              <h3 class="text-xl font-semibold mb-2">Measuring Technical Debt</h3>
+              <p class="text-gray-600">
+                Quantifying technical debt involves multiple metrics: code complexity, test coverage, 
+                dependency freshness, documentation quality, and estimated remediation effort.
+              </p>
+            </div>
+
+            <div class="border-l-4 border-orange-500 pl-6">
+              <h3 class="text-xl font-semibold mb-2">Debt Quadrants</h3>
+              <p class="text-gray-600">
+                Martin Fowler's technical debt quadrant categorizes debt as deliberate/inadvertent and reckless/prudent, 
+                helping teams understand the nature of their debt and appropriate responses.
+              </p>
+            </div>
+
+            <div class="border-l-4 border-orange-500 pl-6">
+              <h3 class="text-xl font-semibold mb-2">Refactoring as Payment</h3>
+              <p class="text-gray-600">
+                Regular refactoring is like making minimum payments on debt. It prevents the codebase from becoming 
+                unmaintainable while allowing continued feature development.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Best Practices -->
+        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
+          <h2 class="text-3xl font-bold text-orange-600 mb-6">Best Practices</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <h3 class="text-lg font-semibold text-gray-800">Prevention Strategies</h3>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-700">Establish coding standards and enforce them</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-700">Implement comprehensive code review processes</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-700">Invest in automated testing and CI/CD</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  <span class="text-gray-700">Allocate time for refactoring in sprint planning</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="space-y-4">
+              <h3 class="text-lg font-semibold text-gray-800">Management Strategies</h3>
+              <ul class="space-y-2">
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                  </svg>
+                  <span class="text-gray-700">Maintain a technical debt register</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                  </svg>
+                  <span class="text-gray-700">Prioritize debt by business impact</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                  </svg>
+                  <span class="text-gray-700">Communicate debt impact to stakeholders</span>
+                </li>
+                <li class="flex items-start">
+                  <svg class="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                  </svg>
+                  <span class="text-gray-700">Set debt reduction goals and track progress</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- AI and Technical Debt -->
+        <section class="bg-gradient-to-r from-orange-50 to-yellow-50 p-6 md:p-10 rounded-xl shadow-lg">
+          <h2 class="text-3xl font-bold text-orange-600 mb-6">AI's Impact on Technical Debt</h2>
+          <p class="text-lg text-gray-700 mb-6">
+            Artificial Intelligence is transforming how we create, identify, and manage technical debt:
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white p-6 rounded-lg">
+              <h3 class="text-xl font-semibold mb-3 text-orange-700">Opportunities</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li>• Automated code quality analysis</li>
+                <li>• Predictive debt accumulation models</li>
+                <li>• AI-assisted refactoring suggestions</li>
+                <li>• Intelligent dependency updates</li>
+              </ul>
+            </div>
+            <div class="bg-white p-6 rounded-lg">
+              <h3 class="text-xl font-semibold mb-3 text-orange-700">Challenges</h3>
+              <ul class="space-y-2 text-gray-700">
+                <li>• AI-generated code quality concerns</li>
+                <li>• Over-reliance on automated solutions</li>
+                <li>• New types of "AI debt"</li>
+                <li>• Transparency and explainability issues</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer
+        class="text-center mt-12 pt-8 border-t border-gray-300 text-gray-500 text-sm"
+      >
+        <p>
+          &copy; 2025 Technical Debt Resources - Managing complexity in software development
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
