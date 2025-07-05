@@ -1,0 +1,3 @@
+[submodule "content/interface-design"]
+	path = content/interface-design
+	url = https://github.com/tslateman/interface-design.git
