@@ -10,15 +10,41 @@
       rel="stylesheet"
     />
     <style>
+      :root {
+        --bg-primary: #f3f4f6;
+        --bg-secondary: #ffffff;
+        --text-primary: #1f2937;
+        --text-secondary: #4b5563;
+        --text-tertiary: #6b7280;
+        --border-color: #d1d5db;
+        --shadow-color: rgba(0, 0, 0, 0.1);
+        --shadow-hover: rgba(0, 0, 0, 0.1);
+      }
+
+      :root.dark {
+        --bg-primary: #111827;
+        --bg-secondary: #1f2937;
+        --text-primary: #f9fafb;
+        --text-secondary: #e5e7eb;
+        --text-tertiary: #9ca3af;
+        --border-color: #374151;
+        --shadow-color: rgba(0, 0, 0, 0.3);
+        --shadow-hover: rgba(0, 0, 0, 0.5);
+      }
+
       body {
         font-family: "Inter", sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
       .resource-card {
+        background-color: var(--bg-secondary);
         transition: all 0.3s ease;
       }
       .resource-card:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 8px 20px var(--shadow-hover);
       }
       .tag {
         display: inline-block;
@@ -29,9 +55,71 @@
         font-size: 0.875rem;
         font-weight: 500;
       }
+
+      .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px var(--shadow-color);
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px var(--shadow-color);
+      }
+
+      .theme-toggle svg {
+        width: 24px;
+        height: 24px;
+        transition: opacity 0.3s ease;
+      }
+
+      .theme-toggle .sun-icon {
+        display: none;
+      }
+
+      :root.dark .theme-toggle .moon-icon {
+        display: none;
+      }
+
+      :root.dark .theme-toggle .sun-icon {
+        display: block;
+      }
     </style>
+    <script>
+      // Apply theme immediately to prevent flash of unstyled content
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+        
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
-  <body class="bg-gray-100 text-gray-800 antialiased leading-relaxed">
+  <body class="antialiased leading-relaxed">
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      <svg class="moon-icon" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+      </svg>
+      <svg class="sun-icon" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+      </svg>
+    </button>
+    
     <div class="container mx-auto p-4 md:p-8">
       <!-- Navigation -->
       <nav class="mb-8">
@@ -45,11 +133,11 @@
 
       <header class="text-center mb-12">
         <h1
-          class="text-4xl md:text-5xl font-extrabold text-orange-700 mb-4 rounded-lg bg-white p-6 shadow-md"
+          class="text-4xl md:text-5xl font-extrabold text-orange-700 mb-4 rounded-lg p-6 shadow-md" style="background-color: var(--bg-secondary); box-shadow: 0 4px 6px var(--shadow-color);"
         >
           Technical Debt Resources
         </h1>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+        <p class="text-lg max-w-3xl mx-auto" style="color: var(--text-secondary);">
           A curated collection of insights, strategies, and perspectives on managing technical debt in modern software development.
         </p>
         <div class="mt-4 space-x-2">
@@ -60,35 +148,35 @@
 
       <main class="space-y-8">
         <!-- Overview Section -->
-        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
+        <section class="p-6 md:p-10 rounded-xl shadow-lg" style="background-color: var(--bg-secondary); box-shadow: 0 10px 15px var(--shadow-color);">
           <h2 class="text-3xl font-bold text-orange-600 mb-6">Understanding Technical Debt</h2>
-          <p class="text-lg text-gray-700 mb-4">
+          <p class="text-lg mb-4" style="color: var(--text-secondary);">
             Technical debt is a metaphor for the implied cost of additional rework caused by choosing an easy (limited) solution now instead of using a better approach that would take longer. Like financial debt, it accumulates interest over time.
           </p>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-            <div class="bg-orange-50 p-4 rounded-lg">
-              <h3 class="font-semibold text-orange-800 mb-2">Intentional Debt</h3>
-              <p class="text-sm text-gray-700">Strategic shortcuts taken with full awareness of consequences</p>
+            <div class="bg-orange-50 dark:bg-gray-800 p-4 rounded-lg">
+              <h3 class="font-semibold text-orange-800 dark:text-orange-400 mb-2">Intentional Debt</h3>
+              <p class="text-sm text-gray-700 dark:text-gray-300">Strategic shortcuts taken with full awareness of consequences</p>
             </div>
-            <div class="bg-orange-50 p-4 rounded-lg">
-              <h3 class="font-semibold text-orange-800 mb-2">Unintentional Debt</h3>
-              <p class="text-sm text-gray-700">Accumulates from poor design decisions or lack of knowledge</p>
+            <div class="bg-orange-50 dark:bg-gray-800 p-4 rounded-lg">
+              <h3 class="font-semibold text-orange-800 dark:text-orange-400 mb-2">Unintentional Debt</h3>
+              <p class="text-sm text-gray-700 dark:text-gray-300">Accumulates from poor design decisions or lack of knowledge</p>
             </div>
-            <div class="bg-orange-50 p-4 rounded-lg">
-              <h3 class="font-semibold text-orange-800 mb-2">Environmental Debt</h3>
-              <p class="text-sm text-gray-700">Results from changing requirements or technology evolution</p>
+            <div class="bg-orange-50 dark:bg-gray-800 p-4 rounded-lg">
+              <h3 class="font-semibold text-orange-800 dark:text-orange-400 mb-2">Environmental Debt</h3>
+              <p class="text-sm text-gray-700 dark:text-gray-300">Results from changing requirements or technology evolution</p>
             </div>
           </div>
         </section>
 
         <!-- Resource Collections -->
-        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
+        <section class="p-6 md:p-10 rounded-xl shadow-lg" style="background-color: var(--bg-secondary); box-shadow: 0 10px 15px var(--shadow-color);">
           <h2 class="text-3xl font-bold text-orange-600 mb-6">Resource Collections</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="resource-card bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <div class="resource-card p-6 rounded-lg border" style="border-color: var(--border-color);">
               <div class="flex items-start justify-between mb-4">
                 <h3 class="text-xl font-semibold">Ten Articles on Tech Debt</h3>
-                <span class="text-sm text-gray-500">June 1, 2025</span>
+                <span class="text-sm" style="color: var(--text-tertiary);">June 1, 2025</span>
               </div>
               <p class="text-gray-600 mb-4">
                 A foundational collection of articles covering the fundamentals of technical debt, from identification to management strategies.
@@ -96,10 +184,10 @@
               <a href="#" class="text-orange-600 font-semibold hover:text-orange-700">Read Collection →</a>
             </div>
 
-            <div class="resource-card bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <div class="resource-card p-6 rounded-lg border" style="border-color: var(--border-color);">
               <div class="flex items-start justify-between mb-4">
                 <h3 class="text-xl font-semibold">Five More Posts on Tech Debt</h3>
-                <span class="text-sm text-gray-500">June 5, 2025</span>
+                <span class="text-sm" style="color: var(--text-tertiary);">June 5, 2025</span>
               </div>
               <p class="text-gray-600 mb-4">
                 Additional perspectives on technical debt, including case studies and advanced management techniques.
@@ -107,10 +195,10 @@
               <a href="#" class="text-orange-600 font-semibold hover:text-orange-700">Read Collection →</a>
             </div>
 
-            <div class="resource-card bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <div class="resource-card p-6 rounded-lg border" style="border-color: var(--border-color);">
               <div class="flex items-start justify-between mb-4">
                 <h3 class="text-xl font-semibold">Managing Tech Debt</h3>
-                <span class="text-sm text-gray-500">June 1, 2025</span>
+                <span class="text-sm" style="color: var(--text-tertiary);">June 1, 2025</span>
               </div>
               <p class="text-gray-600 mb-4">
                 Practical strategies for tracking, prioritizing, and paying down technical debt in real-world projects.
@@ -118,10 +206,10 @@
               <a href="#" class="text-orange-600 font-semibold hover:text-orange-700">Read Guide →</a>
             </div>
 
-            <div class="resource-card bg-gray-50 p-6 rounded-lg border border-gray-200">
+            <div class="resource-card p-6 rounded-lg border" style="border-color: var(--border-color);">
               <div class="flex items-start justify-between mb-4">
                 <h3 class="text-xl font-semibold">Tech Debt in 2025</h3>
-                <span class="text-sm text-gray-500">June 14, 2025</span>
+                <span class="text-sm" style="color: var(--text-tertiary);">June 14, 2025</span>
               </div>
               <p class="text-gray-600 mb-4">
                 Emerging trends in technical debt, including AI's impact on code quality and debt accumulation patterns.
@@ -132,12 +220,12 @@
         </section>
 
         <!-- Key Concepts -->
-        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
+        <section class="p-6 md:p-10 rounded-xl shadow-lg" style="background-color: var(--bg-secondary); box-shadow: 0 10px 15px var(--shadow-color);">
           <h2 class="text-3xl font-bold text-orange-600 mb-6">Key Concepts</h2>
           <div class="space-y-6">
             <div class="border-l-4 border-orange-500 pl-6">
               <h3 class="text-xl font-semibold mb-2">The Debt Metaphor</h3>
-              <p class="text-gray-600">
+              <p style="color: var(--text-secondary);">
                 Technical debt isn't inherently bad—like financial debt, it can be a strategic tool when managed properly. 
                 The key is understanding the interest rate and having a plan to pay it back.
               </p>
@@ -145,7 +233,7 @@
 
             <div class="border-l-4 border-orange-500 pl-6">
               <h3 class="text-xl font-semibold mb-2">Measuring Technical Debt</h3>
-              <p class="text-gray-600">
+              <p style="color: var(--text-secondary);">
                 Quantifying technical debt involves multiple metrics: code complexity, test coverage, 
                 dependency freshness, documentation quality, and estimated remediation effort.
               </p>
@@ -153,7 +241,7 @@
 
             <div class="border-l-4 border-orange-500 pl-6">
               <h3 class="text-xl font-semibold mb-2">Debt Quadrants</h3>
-              <p class="text-gray-600">
+              <p style="color: var(--text-secondary);">
                 Martin Fowler's technical debt quadrant categorizes debt as deliberate/inadvertent and reckless/prudent, 
                 helping teams understand the nature of their debt and appropriate responses.
               </p>
@@ -161,7 +249,7 @@
 
             <div class="border-l-4 border-orange-500 pl-6">
               <h3 class="text-xl font-semibold mb-2">Refactoring as Payment</h3>
-              <p class="text-gray-600">
+              <p style="color: var(--text-secondary);">
                 Regular refactoring is like making minimum payments on debt. It prevents the codebase from becoming 
                 unmaintainable while allowing continued feature development.
               </p>
@@ -170,65 +258,65 @@
         </section>
 
         <!-- Best Practices -->
-        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
+        <section class="p-6 md:p-10 rounded-xl shadow-lg" style="background-color: var(--bg-secondary); box-shadow: 0 10px 15px var(--shadow-color);">
           <h2 class="text-3xl font-bold text-orange-600 mb-6">Best Practices</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="space-y-4">
-              <h3 class="text-lg font-semibold text-gray-800">Prevention Strategies</h3>
+              <h3 class="text-lg font-semibold" style="color: var(--text-primary);">Prevention Strategies</h3>
               <ul class="space-y-2">
                 <li class="flex items-start">
                   <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span class="text-gray-700">Establish coding standards and enforce them</span>
+                  <span style="color: var(--text-secondary);">Establish coding standards and enforce them</span>
                 </li>
                 <li class="flex items-start">
                   <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span class="text-gray-700">Implement comprehensive code review processes</span>
+                  <span style="color: var(--text-secondary);">Implement comprehensive code review processes</span>
                 </li>
                 <li class="flex items-start">
                   <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span class="text-gray-700">Invest in automated testing and CI/CD</span>
+                  <span style="color: var(--text-secondary);">Invest in automated testing and CI/CD</span>
                 </li>
                 <li class="flex items-start">
                   <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
-                  <span class="text-gray-700">Allocate time for refactoring in sprint planning</span>
+                  <span style="color: var(--text-secondary);">Allocate time for refactoring in sprint planning</span>
                 </li>
               </ul>
             </div>
 
             <div class="space-y-4">
-              <h3 class="text-lg font-semibold text-gray-800">Management Strategies</h3>
+              <h3 class="text-lg font-semibold" style="color: var(--text-primary);">Management Strategies</h3>
               <ul class="space-y-2">
                 <li class="flex items-start">
                   <svg class="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                   </svg>
-                  <span class="text-gray-700">Maintain a technical debt register</span>
+                  <span style="color: var(--text-secondary);">Maintain a technical debt register</span>
                 </li>
                 <li class="flex items-start">
                   <svg class="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                   </svg>
-                  <span class="text-gray-700">Prioritize debt by business impact</span>
+                  <span style="color: var(--text-secondary);">Prioritize debt by business impact</span>
                 </li>
                 <li class="flex items-start">
                   <svg class="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                   </svg>
-                  <span class="text-gray-700">Communicate debt impact to stakeholders</span>
+                  <span style="color: var(--text-secondary);">Communicate debt impact to stakeholders</span>
                 </li>
                 <li class="flex items-start">
                   <svg class="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                   </svg>
-                  <span class="text-gray-700">Set debt reduction goals and track progress</span>
+                  <span style="color: var(--text-secondary);">Set debt reduction goals and track progress</span>
                 </li>
               </ul>
             </div>
@@ -236,28 +324,28 @@
         </section>
 
         <!-- AI and Technical Debt -->
-        <section class="bg-gradient-to-r from-orange-50 to-yellow-50 p-6 md:p-10 rounded-xl shadow-lg">
+        <section class="bg-gradient-to-r from-orange-50 to-yellow-50 dark:from-gray-800 dark:to-gray-900 p-6 md:p-10 rounded-xl shadow-lg">
           <h2 class="text-3xl font-bold text-orange-600 mb-6">AI's Impact on Technical Debt</h2>
-          <p class="text-lg text-gray-700 mb-6">
+          <p class="text-lg mb-6" style="color: var(--text-secondary);">
             Artificial Intelligence is transforming how we create, identify, and manage technical debt:
           </p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="bg-white p-6 rounded-lg">
-              <h3 class="text-xl font-semibold mb-3 text-orange-700">Opportunities</h3>
-              <ul class="space-y-2 text-gray-700">
-                <li>• Automated code quality analysis</li>
-                <li>• Predictive debt accumulation models</li>
-                <li>• AI-assisted refactoring suggestions</li>
-                <li>• Intelligent dependency updates</li>
+            <div class="p-6 rounded-lg" style="background-color: var(--bg-secondary);">
+              <h3 class="text-xl font-semibold mb-3 text-orange-700 dark:text-orange-400">Opportunities</h3>
+              <ul class="space-y-2" style="color: var(--text-secondary);">
+                <li style="color: var(--text-secondary);">• Automated code quality analysis</li>
+                <li style="color: var(--text-secondary);">• Predictive debt accumulation models</li>
+                <li style="color: var(--text-secondary);">• AI-assisted refactoring suggestions</li>
+                <li style="color: var(--text-secondary);">• Intelligent dependency updates</li>
               </ul>
             </div>
-            <div class="bg-white p-6 rounded-lg">
-              <h3 class="text-xl font-semibold mb-3 text-orange-700">Challenges</h3>
-              <ul class="space-y-2 text-gray-700">
-                <li>• AI-generated code quality concerns</li>
-                <li>• Over-reliance on automated solutions</li>
-                <li>• New types of "AI debt"</li>
-                <li>• Transparency and explainability issues</li>
+            <div class="p-6 rounded-lg" style="background-color: var(--bg-secondary);">
+              <h3 class="text-xl font-semibold mb-3 text-orange-700 dark:text-orange-400">Challenges</h3>
+              <ul class="space-y-2" style="color: var(--text-secondary);">
+                <li style="color: var(--text-secondary);">• AI-generated code quality concerns</li>
+                <li style="color: var(--text-secondary);">• Over-reliance on automated solutions</li>
+                <li style="color: var(--text-secondary);">• New types of "AI debt"</li>
+                <li style="color: var(--text-secondary);">• Transparency and explainability issues</li>
               </ul>
             </div>
           </div>
@@ -265,12 +353,59 @@
       </main>
 
       <footer
-        class="text-center mt-12 pt-8 border-t border-gray-300 text-gray-500 text-sm"
+        class="text-center mt-12 pt-8 border-t text-sm" style="border-color: var(--border-color); color: var(--text-tertiary);"
       >
         <p>
           &copy; 2025 Technical Debt Resources - Managing complexity in software development
         </p>
       </footer>
     </div>
+    
+    <script>
+      // Theme management functions
+      // Check for saved theme preference or system preference
+      function getThemePreference() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          return savedTheme;
+        }
+        // Check system preference
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+
+      // Apply theme
+      function applyTheme(theme) {
+        const root = document.documentElement;
+        if (theme === 'dark') {
+          root.classList.add('dark');
+        } else {
+          root.classList.remove('dark');
+        }
+      }
+
+      // Toggle theme
+      function toggleTheme() {
+        const root = document.documentElement;
+        const currentTheme = root.classList.contains('dark') ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+      }
+
+      // Initialize theme on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        const theme = getThemePreference();
+        applyTheme(theme);
+      });
+
+      // Listen for system theme changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        // Only auto-switch if user hasn't manually set a preference
+        if (!localStorage.getItem('theme')) {
+          applyTheme(e.matches ? 'dark' : 'light');
+        }
+      });
+    </script>
   </body>
 </html>

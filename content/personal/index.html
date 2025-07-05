@@ -10,18 +10,117 @@
       rel="stylesheet"
     />
     <style>
+      :root {
+        --bg-primary: #f3f4f6;
+        --bg-secondary: #ffffff;
+        --text-primary: #1f2937;
+        --text-secondary: #4b5563;
+        --text-tertiary: #6b7280;
+        --border-color: #d1d5db;
+        --shadow-color: rgba(0, 0, 0, 0.1);
+        --shadow-hover: rgba(0, 0, 0, 0.1);
+        --indigo-600: #4f46e5;
+        --indigo-700: #4338ca;
+        --blue-500: #3b82f6;
+        --blue-600: #2563eb;
+        --green-500: #10b981;
+      }
+
+      :root.dark {
+        --bg-primary: #111827;
+        --bg-secondary: #1f2937;
+        --text-primary: #f9fafb;
+        --text-secondary: #e5e7eb;
+        --text-tertiary: #9ca3af;
+        --border-color: #374151;
+        --shadow-color: rgba(0, 0, 0, 0.3);
+        --shadow-hover: rgba(0, 0, 0, 0.5);
+        --indigo-600: #6366f1;
+        --indigo-700: #818cf8;
+        --blue-500: #60a5fa;
+        --blue-600: #3b82f6;
+        --green-500: #34d399;
+      }
+
       body {
         font-family: "Inter", sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        transition: background-color 0.3s ease, color 0.3s ease;
       }
+
       .principle-card {
         transition: all 0.3s ease;
       }
+
       .principle-card:hover {
         transform: translateX(4px);
       }
+
+      .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 8px var(--shadow-color);
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px var(--shadow-color);
+      }
+
+      .theme-toggle svg {
+        width: 24px;
+        height: 24px;
+        transition: opacity 0.3s ease;
+      }
+
+      .theme-toggle .sun-icon {
+        display: none;
+      }
+
+      :root.dark .theme-toggle .moon-icon {
+        display: none;
+      }
+
+      :root.dark .theme-toggle .sun-icon {
+        display: block;
+      }
     </style>
+    <script>
+      // Apply theme immediately to prevent flash of unstyled content
+      (function() {
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+        
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
   </head>
-  <body class="bg-gray-100 text-gray-800 antialiased leading-relaxed">
+  <body class="antialiased leading-relaxed">
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+      <svg class="moon-icon" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+      </svg>
+      <svg class="sun-icon" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+      </svg>
+    </button>
+    
     <div class="container mx-auto p-4 md:p-8">
       <!-- Navigation -->
       <nav class="mb-8">
@@ -35,50 +134,50 @@
 
       <header class="text-center mb-12">
         <h1
-          class="text-4xl md:text-5xl font-extrabold text-indigo-700 mb-4 rounded-lg bg-white p-6 shadow-md"
+          class="text-4xl md:text-5xl font-extrabold mb-4 rounded-lg p-6 shadow-md" style="color: var(--indigo-700); background-color: var(--bg-secondary); box-shadow: 0 4px 6px var(--shadow-color);"
         >
           Personal Development
         </h1>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p class="text-lg max-w-2xl mx-auto" style="color: var(--text-secondary);">
           Hope for good stuff! A collection of values, principles, and thoughts on effective living and working.
         </p>
       </header>
 
       <main class="space-y-8">
         <!-- Values Section -->
-        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
-          <h2 class="text-3xl font-bold text-indigo-600 mb-6">Core Values</h2>
+        <section class="p-6 md:p-10 rounded-xl shadow-lg" style="background-color: var(--bg-secondary); box-shadow: 0 10px 15px var(--shadow-color);">
+          <h2 class="text-3xl font-bold mb-6" style="color: var(--indigo-600);">Core Values</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="principle-card border-l-4 border-indigo-500 pl-6 py-4">
+            <div class="principle-card border-l-4 pl-6 py-4" style="border-color: var(--indigo-600);">
               <h3 class="text-xl font-semibold mb-2">Integrity</h3>
-              <p class="text-gray-600">Acting with consistency between values, thoughts, and actions.</p>
+              <p style="color: var(--text-secondary);">Acting with consistency between values, thoughts, and actions.</p>
             </div>
-            <div class="principle-card border-l-4 border-indigo-500 pl-6 py-4">
+            <div class="principle-card border-l-4 pl-6 py-4" style="border-color: var(--indigo-600);">
               <h3 class="text-xl font-semibold mb-2">Growth</h3>
-              <p class="text-gray-600">Continuous learning and improvement in all aspects of life.</p>
+              <p style="color: var(--text-secondary);">Continuous learning and improvement in all aspects of life.</p>
             </div>
-            <div class="principle-card border-l-4 border-indigo-500 pl-6 py-4">
+            <div class="principle-card border-l-4 pl-6 py-4" style="border-color: var(--indigo-600);">
               <h3 class="text-xl font-semibold mb-2">Clarity</h3>
-              <p class="text-gray-600">Thinking and communicating with precision and purpose.</p>
+              <p style="color: var(--text-secondary);">Thinking and communicating with precision and purpose.</p>
             </div>
-            <div class="principle-card border-l-4 border-indigo-500 pl-6 py-4">
+            <div class="principle-card border-l-4 pl-6 py-4" style="border-color: var(--indigo-600);">
               <h3 class="text-xl font-semibold mb-2">Service</h3>
-              <p class="text-gray-600">Contributing value to others and the broader community.</p>
+              <p style="color: var(--text-secondary);">Contributing value to others and the broader community.</p>
             </div>
           </div>
         </section>
 
         <!-- Principles Section -->
-        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
-          <h2 class="text-3xl font-bold text-indigo-600 mb-6">Guiding Principles</h2>
+        <section class="p-6 md:p-10 rounded-xl shadow-lg" style="background-color: var(--bg-secondary); box-shadow: 0 10px 15px var(--shadow-color);">
+          <h2 class="text-3xl font-bold mb-6" style="color: var(--indigo-600);">Guiding Principles</h2>
           <div class="space-y-6">
-            <div class="border-l-4 border-blue-500 pl-6">
+            <div class="border-l-4 pl-6" style="border-color: var(--blue-500);">
               <h3 class="text-2xl font-semibold mb-3">Write Things Down</h3>
-              <p class="text-gray-600 mb-3">
+              <p class="mb-3" style="color: var(--text-secondary);">
                 Documentation is not just about recording information—it's about clarifying thinking. 
                 Writing forces precision and reveals gaps in understanding.
               </p>
-              <ul class="list-disc list-inside text-gray-600 space-y-2 ml-4">
+              <ul class="list-disc list-inside space-y-2 ml-4" style="color: var(--text-secondary);">
                 <li>Capture decisions and their rationale</li>
                 <li>Document processes before they become routine</li>
                 <li>Share knowledge proactively</li>
@@ -89,36 +188,36 @@
         </section>
 
         <!-- Thoughts Section -->
-        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
-          <h2 class="text-3xl font-bold text-indigo-600 mb-6">Key Thoughts</h2>
+        <section class="p-6 md:p-10 rounded-xl shadow-lg" style="background-color: var(--bg-secondary); box-shadow: 0 10px 15px var(--shadow-color);">
+          <h2 class="text-3xl font-bold mb-6" style="color: var(--indigo-600);">Key Thoughts</h2>
           <div class="space-y-6">
-            <div class="border-l-4 border-green-500 pl-6">
+            <div class="border-l-4 pl-6" style="border-color: var(--green-500);">
               <h3 class="text-xl font-semibold mb-2">Why This Site</h3>
-              <p class="text-gray-600">
+              <p style="color: var(--text-secondary);">
                 Creating a centralized place for thoughts and learnings serves multiple purposes: 
                 it clarifies thinking, shares knowledge, and creates a reference for future reflection.
               </p>
             </div>
             
-            <div class="border-l-4 border-green-500 pl-6">
+            <div class="border-l-4 pl-6" style="border-color: var(--green-500);">
               <h3 class="text-xl font-semibold mb-2">Effective Communication</h3>
-              <p class="text-gray-600">
+              <p style="color: var(--text-secondary);">
                 Good communication is about understanding your audience, being clear about your intent, 
                 and structuring information for easy consumption. Less is often more.
               </p>
             </div>
             
-            <div class="border-l-4 border-green-500 pl-6">
+            <div class="border-l-4 pl-6" style="border-color: var(--green-500);">
               <h3 class="text-xl font-semibold mb-2">Thinking Clearly</h3>
-              <p class="text-gray-600">
+              <p style="color: var(--text-secondary);">
                 Clear thinking requires removing emotional noise, questioning assumptions, 
                 and breaking complex problems into manageable components.
               </p>
             </div>
             
-            <div class="border-l-4 border-green-500 pl-6">
+            <div class="border-l-4 pl-6" style="border-color: var(--green-500);">
               <h3 class="text-xl font-semibold mb-2">Documentation as Code</h3>
-              <p class="text-gray-600">
+              <p style="color: var(--text-secondary);">
                 Treat documentation with the same rigor as production code: version control, 
                 peer review, testing for accuracy, and continuous improvement.
               </p>
@@ -127,32 +226,32 @@
         </section>
 
         <!-- Virtues Section -->
-        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
-          <h2 class="text-3xl font-bold text-indigo-600 mb-6">Virtues to Cultivate</h2>
+        <section class="p-6 md:p-10 rounded-xl shadow-lg" style="background-color: var(--bg-secondary); box-shadow: 0 10px 15px var(--shadow-color);">
+          <h2 class="text-3xl font-bold mb-6" style="color: var(--indigo-600);">Virtues to Cultivate</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <h3 class="text-xl font-semibold mb-4 text-gray-700">Marcus Aurelius Virtues</h3>
+              <h3 class="text-xl font-semibold mb-4" style="color: var(--text-primary);">Marcus Aurelius Virtues</h3>
               <ul class="space-y-3">
                 <li class="flex items-start">
-                  <span class="text-indigo-600 mr-2">•</span>
+                  <span class="mr-2" style="color: var(--indigo-600);">•</span>
                   <div>
                     <span class="font-semibold">Wisdom</span> - Sound judgment and practical knowledge
                   </div>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-indigo-600 mr-2">•</span>
+                  <span class="mr-2" style="color: var(--indigo-600);">•</span>
                   <div>
                     <span class="font-semibold">Justice</span> - Fairness and integrity in dealings
                   </div>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-indigo-600 mr-2">•</span>
+                  <span class="mr-2" style="color: var(--indigo-600);">•</span>
                   <div>
                     <span class="font-semibold">Courage</span> - Facing challenges with resolve
                   </div>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-indigo-600 mr-2">•</span>
+                  <span class="mr-2" style="color: var(--indigo-600);">•</span>
                   <div>
                     <span class="font-semibold">Temperance</span> - Moderation and self-control
                   </div>
@@ -161,28 +260,28 @@
             </div>
             
             <div>
-              <h3 class="text-xl font-semibold mb-4 text-gray-700">Virtues of a Programmer</h3>
+              <h3 class="text-xl font-semibold mb-4" style="color: var(--text-primary);">Virtues of a Programmer</h3>
               <ul class="space-y-3">
                 <li class="flex items-start">
-                  <span class="text-blue-600 mr-2">•</span>
+                  <span class="mr-2" style="color: var(--blue-600);">•</span>
                   <div>
                     <span class="font-semibold">Laziness</span> - Automate repetitive tasks
                   </div>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-blue-600 mr-2">•</span>
+                  <span class="mr-2" style="color: var(--blue-600);">•</span>
                   <div>
                     <span class="font-semibold">Impatience</span> - Write efficient, fast code
                   </div>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-blue-600 mr-2">•</span>
+                  <span class="mr-2" style="color: var(--blue-600);">•</span>
                   <div>
                     <span class="font-semibold">Hubris</span> - Write code others won't criticize
                   </div>
                 </li>
                 <li class="flex items-start">
-                  <span class="text-blue-600 mr-2">•</span>
+                  <span class="mr-2" style="color: var(--blue-600);">•</span>
                   <div>
                     <span class="font-semibold">Curiosity</span> - Always learning and exploring
                   </div>
@@ -193,18 +292,18 @@
         </section>
 
         <!-- Resources Section -->
-        <section class="bg-white p-6 md:p-10 rounded-xl shadow-lg">
-          <h2 class="text-3xl font-bold text-indigo-600 mb-6">Additional Resources</h2>
+        <section class="p-6 md:p-10 rounded-xl shadow-lg" style="background-color: var(--bg-secondary); box-shadow: 0 10px 15px var(--shadow-color);">
+          <h2 class="text-3xl font-bold mb-6" style="color: var(--indigo-600);">Additional Resources</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <a href="https://github.com/tslateman/site" target="_blank" 
-               class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-              <svg class="w-6 h-6 mr-3 text-gray-700" fill="currentColor" viewBox="0 0 24 24">
+               class="flex items-center p-4 rounded-lg transition-colors" style="background-color: var(--bg-primary);" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+              <svg class="w-6 h-6 mr-3" style="color: var(--text-primary);" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
               </svg>
               <span class="font-semibold">GitHub Repository</span>
             </a>
-            <a href="#" class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-              <svg class="w-6 h-6 mr-3 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <a href="#" class="flex items-center p-4 rounded-lg transition-colors" style="background-color: var(--bg-primary);" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+              <svg class="w-6 h-6 mr-3" style="color: var(--text-primary);" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
               </svg>
               <span class="font-semibold">Reading List</span>
@@ -214,12 +313,58 @@
       </main>
 
       <footer
-        class="text-center mt-12 pt-8 border-t border-gray-300 text-gray-500 text-sm"
+        class="text-center mt-12 pt-8 border-t text-sm" style="border-color: var(--border-color); color: var(--text-tertiary);"
       >
         <p>
           &copy; 2025 Personal Development - Hope for good stuff!
         </p>
       </footer>
     </div>
+    
+    <script>
+      // Check for saved theme preference or system preference
+      function getThemePreference() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+          return savedTheme;
+        }
+        // Check system preference
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+
+      // Apply theme
+      function applyTheme(theme) {
+        const root = document.documentElement;
+        if (theme === 'dark') {
+          root.classList.add('dark');
+        } else {
+          root.classList.remove('dark');
+        }
+      }
+
+      // Toggle theme
+      function toggleTheme() {
+        const root = document.documentElement;
+        const currentTheme = root.classList.contains('dark') ? 'dark' : 'light';
+        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+      }
+
+      // Initialize theme on page load
+      document.addEventListener('DOMContentLoaded', function() {
+        const theme = getThemePreference();
+        applyTheme(theme);
+      });
+
+      // Listen for system theme changes
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+        // Only auto-switch if user hasn't manually set a preference
+        if (!localStorage.getItem('theme')) {
+          applyTheme(e.matches ? 'dark' : 'light');
+        }
+      });
+    </script>
   </body>
 </html>
