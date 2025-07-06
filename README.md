@@ -16,14 +16,39 @@ This repository serves as a home base for various knowledge resources and docume
 ├── content/
 │   ├── personal/                       # Personal development content
 │   │   └── index.html                 # Values, principles, and thoughts
-│   ├── interface-design/              # Interface design resources
+│   ├── interface-design/              # Git submodule: https://github.com/tslateman/interface-design
 │   │   └── index.html                 # SCORE framework and best practices
-│   └── tech-debt/                     # Technical debt resources
+│   └── tech-debt/                     # Git submodule: git@github.com:tslateman/tech-debt
 │       └── index.html                 # Articles and management strategies
 └── assets/                            # Shared assets (CSS, JS, images)
     ├── css/
     ├── js/
     └── images/
+```
+
+## Git Submodules
+
+This repository uses git submodules to sync content from external repositories:
+
+- **interface-design**: https://github.com/tslateman/interface-design
+- **tech-debt**: git@github.com:tslateman/tech-debt
+
+### Working with Submodules
+
+When cloning this repository for the first time:
+```bash
+git clone --recursive https://github.com/tslateman/share.git
+```
+
+If you've already cloned without submodules:
+```bash
+git submodule init
+git submodule update
+```
+
+To update submodules to their latest versions:
+```bash
+git submodule update --remote
 ```
 
 ## Content Areas
