@@ -4,3 +4,6 @@
 [submodule "content/tech-debt"]
 	path = content/tech-debt
 	url = git@github.com:tslateman/tech-debt.git
+[submodule "content/personal"]
+	path = content/personal
+	url = git@github.com:tslateman/site.git

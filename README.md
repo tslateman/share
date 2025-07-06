@@ -14,8 +14,8 @@ This repository serves as a home base for various knowledge resources and docume
 ```
 ├── index.html                          # Main hub landing page
 ├── content/
-│   ├── personal/                       # Personal development content
-│   │   └── index.html                 # Values, principles, and thoughts
+│   ├── personal/                       # Git submodule: git@github.com:tslateman/site.git
+│   │   └── *.md files                 # Values, principles, and thoughts
 │   ├── interface-design/              # Git submodule: https://github.com/tslateman/interface-design
 │   │   └── index.html                 # SCORE framework and best practices
 │   └── tech-debt/                     # Git submodule: git@github.com:tslateman/tech-debt
@@ -30,6 +30,7 @@ This repository serves as a home base for various knowledge resources and docume
 
 This repository uses git submodules to sync content from external repositories:
 
+- **personal**: git@github.com:tslateman/site.git (deployed at https://tslateman.github.io/site/)
 - **interface-design**: https://github.com/tslateman/interface-design
 - **tech-debt**: git@github.com:tslateman/tech-debt
 
