@@ -1,3 +1,6 @@
 [submodule "content/interface-design"]
 	path = content/interface-design
 	url = https://github.com/tslateman/interface-design.git
+[submodule "content/tech-debt"]
+	path = content/tech-debt
+	url = git@github.com:tslateman/tech-debt.git
