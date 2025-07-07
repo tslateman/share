@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Personal development values, principles, and thoughts on effective work and life." />
-    <title>Personal Development - Shared Content Hub</title>
+    <title>Personal Development - Code & Context</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
@@ -176,8 +176,8 @@
       <div class="flex flex-wrap justify-center gap-2 mb-8">
         <button class="tab-button active" onclick="showSection('values')">Core Values</button>
         <button class="tab-button" onclick="showSection('principles')">Principles</button>
-        <button class="tab-button" onclick="showSection('thoughts')">Thoughts</button>
         <button class="tab-button" onclick="showSection('virtues')">Virtues</button>
+        <button class="tab-button" onclick="showSection('thoughts')">About</button>
       </div>
 
       <!-- Values Section -->
@@ -337,39 +337,54 @@
               Every idea written down is a conversation with your future self. Documentation beats memory alone.
             </p>
           </div>
+          
+          <div class="value-card p-8 rounded-xl shadow-lg mb-8">
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary);">Effective Communication</h3>
+            <p class="text-lg mb-4" style="color: var(--text-secondary);">
+              Clear writing leads to clear thinking. Communication is the foundation of collaboration.
+            </p>
+            <p style="color: var(--text-tertiary);">
+              When we articulate ideas precisely, we create shared understanding that drives progress.
+            </p>
+          </div>
+          
+          <div class="value-card p-8 rounded-xl shadow-lg mb-8">
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary);">Thinking Clearly</h3>
+            <p class="text-lg mb-4" style="color: var(--text-secondary);">
+              Clarity comes from questioning assumptions and testing ideas against reality.
+            </p>
+            <p style="color: var(--text-tertiary);">
+              The discipline of clear thinking prevents wasted effort and reveals genuine insights.
+            </p>
+          </div>
+          
+          <div class="value-card p-8 rounded-xl shadow-lg mb-8">
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary);">Documentation as Code</h3>
+            <p class="text-lg mb-4" style="color: var(--text-secondary);">
+              Treat documentation with the same care as code. Both are forms of communication.
+            </p>
+            <p style="color: var(--text-tertiary);">
+              Good documentation lives alongside code, evolves with it, and serves as a bridge between intention and implementation.
+            </p>
+          </div>
         </div>
       </section>
 
-      <!-- Thoughts Section -->
+      <!-- About Section -->
       <section id="thoughts-section" class="content-section">
-        <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--text-primary);">Thoughts</h2>
+        <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--text-primary);">About</h2>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-          <div class="value-card p-6 rounded-xl shadow-lg">
-            <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">Why This Site</h3>
-            <p style="color: var(--text-secondary);">
+        <div class="max-w-4xl mx-auto">
+          <div class="value-card p-8 rounded-xl shadow-lg">
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary);">Why This Site</h3>
+            <p class="text-lg mb-4" style="color: var(--text-secondary);">
               A place to capture and share what matters. Building in public creates accountability.
             </p>
-          </div>
-          
-          <div class="value-card p-6 rounded-xl shadow-lg">
-            <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">Effective Communication</h3>
-            <p style="color: var(--text-secondary);">
-              Clear writing leads to clear thinking. Communication is the foundation of collaboration.
+            <p class="mb-4" style="color: var(--text-secondary);">
+              This site serves as both a personal reference and a public declaration. It's easier to stay true to values when they're written down and shared. The act of organizing thoughts clarifies them.
             </p>
-          </div>
-          
-          <div class="value-card p-6 rounded-xl shadow-lg">
-            <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">Thinking Clearly</h3>
-            <p style="color: var(--text-secondary);">
-              Clarity comes from questioning assumptions and testing ideas against reality.
-            </p>
-          </div>
-          
-          <div class="value-card p-6 rounded-xl shadow-lg">
-            <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">Documentation as Code</h3>
-            <p style="color: var(--text-secondary);">
-              Treat documentation with the same care as code. Both are forms of communication.
+            <p style="color: var(--text-tertiary);">
+              Each page represents an ongoing conversation with ideas. Nothing here is final. Everything evolves through use and reflection.
             </p>
           </div>
         </div>
@@ -409,7 +424,7 @@
 
       <footer class="text-center mt-12 pt-8 border-t text-sm" style="border-color: var(--border-color); color: var(--text-tertiary);">
         <p>
-          &copy; 2025 Personal Development - Part of the Shared Content Hub
+          &copy; 2025 Personal Development - Part of Code & Context
         </p>
       </footer>
     </div>

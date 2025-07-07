@@ -1,4 +1,4 @@
-# Shared Content Hub
+# Code & Context
 
 A centralized repository for shared content on personal development, interface design, and technical debt management.
 
