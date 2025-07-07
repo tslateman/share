@@ -6,6 +6,10 @@ All notable changes to Code & Context will be documented in this file.
 
 ### Added
 
+- Custom `/changelog` slash command for Claude to automatically generate changelog entries
+  - Analyzes git status and recent commits
+  - Formats entries according to project style
+  - Supports options like `--commits` and `--since`
 - Created `personal.html` with card-based layout for personal development content
   - Implemented tabbed navigation (Core Values, Principles, Thoughts, Virtues)
   - Added three main value categories: Self, Social, and Impact
@@ -24,6 +28,12 @@ All notable changes to Code & Context will be documented in this file.
 - Reorganized personal.html content:
   - Moved "Effective Communication", "Thinking Clearly", and "Documentation as Code" from Thoughts to Principles section
   - Renamed "Thoughts" tab to "About" to better represent the "Why This Site" content
+- Updated index.html philosophy section wording to "Code is communication. Context adds meaning."
+- Added conditional "Back to Home" navigation to submodule pages:
+  - Interface Design pages only show navigation when accessed via Code & Context
+  - Tech Debt page only shows navigation when accessed via Code & Context
+  - Uses JavaScript to detect `/share/content/` in URL path
+- Widened Interface Design page container from `max-w-4xl` to `max-w-7xl` for consistency
 
 ### Technical Details
 
