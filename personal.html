@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Personal development values, principles, and thoughts on effective work and life." />
+    <meta
+      name="description"
+      content="Personal development values, principles, and thoughts on effective work and life."
+    />
     <title>Personal Development - Code & Context</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
@@ -42,7 +45,8 @@
 
       .value-card {
         background-color: var(--bg-secondary);
-        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.3s ease;
+        transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out,
+          background-color 0.3s ease;
       }
 
       .value-card:hover {
@@ -130,13 +134,13 @@
     </style>
     <script>
       // Apply theme immediately to prevent flash of unstyled content
-      (function() {
-        const savedTheme = localStorage.getItem('theme');
-        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
-        
-        if (theme === 'dark') {
-          document.documentElement.classList.add('dark');
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        const theme = savedTheme || (systemPrefersDark ? "dark" : "light");
+
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
         }
       })();
     </script>
@@ -148,16 +152,28 @@
         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
       </svg>
       <svg class="sun-icon" fill="currentColor" viewBox="0 0 20 20">
-        <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+        <path
+          fill-rule="evenodd"
+          d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+          clip-rule="evenodd"
+        ></path>
       </svg>
     </button>
-    
+
     <div class="container mx-auto p-4 md:p-8 max-w-7xl">
       <!-- Navigation -->
       <nav class="mb-6">
-        <a href="index.html" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium">
+        <a
+          href="index.html"
+          class="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium"
+        >
           <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            ></path>
           </svg>
           Back to Home
         </a>
@@ -167,7 +183,7 @@
         <h1 class="text-4xl md:text-5xl font-extrabold text-indigo-600 mb-4">
           Personal Development
         </h1>
-        <p class="text-lg max-w-3xl mx-auto" style="color: var(--text-secondary);">
+        <p class="text-lg max-w-3xl mx-auto" style="color: var(--text-secondary)">
           Values inform decisions. These principles guide decisions when paths diverge.
         </p>
       </header>
@@ -184,12 +200,15 @@
       <!-- Values Section -->
       <section id="values-section" class="content-section active">
         <div class="mb-12 text-center">
-          <h2 class="text-3xl font-bold mb-4" style="color: var(--text-primary);">Core Value Areas</h2>
-          <p class="text-lg max-w-3xl mx-auto mb-2" style="color: var(--text-secondary);">
+          <h2 class="text-3xl font-bold mb-4" style="color: var(--text-primary)">
+            Core Value Areas
+          </h2>
+          <p class="text-lg max-w-3xl mx-auto mb-2" style="color: var(--text-secondary)">
             Good means different things in different moments. Context shapes every judgment.
           </p>
-          <p class="text-base max-w-2xl mx-auto italic" style="color: var(--text-tertiary);">
-            Pursuing ideals is challenging given our imperfect nature. Progress matters more than flawless execution.
+          <p class="text-base max-w-2xl mx-auto italic" style="color: var(--text-tertiary)">
+            Pursuing ideals is challenging given our imperfect nature. Progress matters more than
+            flawless execution.
           </p>
         </div>
 
@@ -197,36 +216,51 @@
           <!-- Self Values Card -->
           <div class="value-card p-6 rounded-xl shadow-lg">
             <div class="mb-4">
-              <svg class="w-12 h-12 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              <svg
+                class="w-12 h-12 text-purple-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                ></path>
               </svg>
             </div>
-            <h3 class="text-2xl font-bold mb-3" style="color: var(--text-primary);">Self</h3>
-            <p class="mb-6 italic" style="color: var(--text-secondary);">
+            <h3 class="text-2xl font-bold mb-3" style="color: var(--text-primary)">Self</h3>
+            <p class="mb-6 italic" style="color: var(--text-secondary)">
               Personal growth and inner harmony. Understanding your inner compass.
             </p>
-            
+
             <div class="space-y-3">
               <div class="value-subcard p-4 rounded-lg">
                 <h4 class="font-semibold mb-1">Mind & Memory</h4>
-                <p class="text-sm" style="color: var(--text-secondary);">Writing, Reflecting, Journaling</p>
-                <p class="text-sm mt-2" style="color: var(--text-tertiary);">
-                  Writing forces clarity from daily life. Reflection transforms experience into wisdom.
+                <p class="text-sm" style="color: var(--text-secondary)">
+                  Writing, Reflecting, Journaling
+                </p>
+                <p class="text-sm mt-2" style="color: var(--text-tertiary)">
+                  Writing forces clarity from daily life. Reflection transforms experience into
+                  wisdom.
                 </p>
               </div>
-              
+
               <div class="value-subcard p-4 rounded-lg">
                 <h4 class="font-semibold mb-1">Intellect & Growth</h4>
-                <p class="text-sm" style="color: var(--text-secondary);">Reason, Learning, Wisdom</p>
-                <p class="text-sm mt-2" style="color: var(--text-tertiary);">
+                <p class="text-sm" style="color: var(--text-secondary)">Reason, Learning, Wisdom</p>
+                <p class="text-sm mt-2" style="color: var(--text-tertiary)">
                   Knowledge without wisdom is trivia. Learning feeds reason with fresh material.
                 </p>
               </div>
-              
+
               <div class="value-subcard p-4 rounded-lg">
                 <h4 class="font-semibold mb-1">Personal Well-being</h4>
-                <p class="text-sm" style="color: var(--text-secondary);">Balance, Autonomy, Mindfulness</p>
-                <p class="text-sm mt-2" style="color: var(--text-tertiary);">
+                <p class="text-sm" style="color: var(--text-secondary)">
+                  Balance, Autonomy, Mindfulness
+                </p>
+                <p class="text-sm mt-2" style="color: var(--text-tertiary)">
                   Balance is dynamic stability. Mindfulness anchors you in the present.
                 </p>
               </div>
@@ -236,36 +270,54 @@
           <!-- Social Values Card -->
           <div class="value-card p-6 rounded-xl shadow-lg">
             <div class="mb-4">
-              <svg class="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+              <svg
+                class="w-12 h-12 text-green-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
+                ></path>
               </svg>
             </div>
-            <h3 class="text-2xl font-bold mb-3" style="color: var(--text-primary);">Social</h3>
-            <p class="mb-6 italic" style="color: var(--text-secondary);">
-              Meaningful connections and ethical interactions. Relationship quality determines life quality.
+            <h3 class="text-2xl font-bold mb-3" style="color: var(--text-primary)">Social</h3>
+            <p class="mb-6 italic" style="color: var(--text-secondary)">
+              Meaningful connections and ethical interactions. Relationship quality determines life
+              quality.
             </p>
-            
+
             <div class="space-y-3">
               <div class="value-subcard p-4 rounded-lg">
                 <h4 class="font-semibold mb-1">Ethics & Character</h4>
-                <p class="text-sm" style="color: var(--text-secondary);">Courage, Integrity, Justice</p>
-                <p class="text-sm mt-2" style="color: var(--text-tertiary);">
+                <p class="text-sm" style="color: var(--text-secondary)">
+                  Courage, Integrity, Justice
+                </p>
+                <p class="text-sm mt-2" style="color: var(--text-tertiary)">
                   Character is what you do when nobody's watching. Courage acts on principles.
                 </p>
               </div>
-              
+
               <div class="value-subcard p-4 rounded-lg">
                 <h4 class="font-semibold mb-1">Connection & Belonging</h4>
-                <p class="text-sm" style="color: var(--text-secondary);">Relationships, Community, Kindness</p>
-                <p class="text-sm mt-2" style="color: var(--text-tertiary);">
-                  Relationships are built one conversation at a time. Kindness recognizes people are doing their best.
+                <p class="text-sm" style="color: var(--text-secondary)">
+                  Relationships, Community, Kindness
+                </p>
+                <p class="text-sm mt-2" style="color: var(--text-tertiary)">
+                  Relationships are built one conversation at a time. Kindness recognizes people are
+                  doing their best.
                 </p>
               </div>
-              
+
               <div class="value-subcard p-4 rounded-lg">
                 <h4 class="font-semibold mb-1">Adaptability & Awareness</h4>
-                <p class="text-sm" style="color: var(--text-secondary);">Context, Sensitivity, Flexibility</p>
-                <p class="text-sm mt-2" style="color: var(--text-tertiary);">
+                <p class="text-sm" style="color: var(--text-secondary)">
+                  Context, Sensitivity, Flexibility
+                </p>
+                <p class="text-sm mt-2" style="color: var(--text-tertiary)">
                   Social intelligence reads the room. Flexibility finds multiple valid paths.
                 </p>
               </div>
@@ -275,37 +327,53 @@
           <!-- Impact Values Card -->
           <div class="value-card p-6 rounded-xl shadow-lg">
             <div class="mb-4">
-              <svg class="w-12 h-12 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              <svg
+                class="w-12 h-12 text-orange-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                ></path>
               </svg>
             </div>
-            <h3 class="text-2xl font-bold mb-3" style="color: var(--text-primary);">Impact</h3>
-            <p class="mb-6 italic" style="color: var(--text-secondary);">
-              Striving for tangible results and making a difference. Ideas without execution remain fantasies.
+            <h3 class="text-2xl font-bold mb-3" style="color: var(--text-primary)">Impact</h3>
+            <p class="mb-6 italic" style="color: var(--text-secondary)">
+              Striving for tangible results and making a difference. Ideas without execution remain
+              fantasies.
             </p>
-            
+
             <div class="space-y-3">
               <div class="value-subcard p-4 rounded-lg">
                 <h4 class="font-semibold mb-1">Achievement & Productivity</h4>
-                <p class="text-sm" style="color: var(--text-secondary);">Results, Pragmatism, Focus</p>
-                <p class="text-sm mt-2" style="color: var(--text-tertiary);">
+                <p class="text-sm" style="color: var(--text-secondary)">
+                  Results, Pragmatism, Focus
+                </p>
+                <p class="text-sm mt-2" style="color: var(--text-tertiary)">
                   Achievement is effectiveness, not busyness. Focus transforms energy into force.
                 </p>
               </div>
-              
+
               <div class="value-subcard p-4 rounded-lg">
                 <h4 class="font-semibold mb-1">Structure & Organization</h4>
-                <p class="text-sm" style="color: var(--text-secondary);">Order, Efficiency, Accuracy</p>
-                <p class="text-sm mt-2" style="color: var(--text-tertiary);">
+                <p class="text-sm" style="color: var(--text-secondary)">
+                  Order, Efficiency, Accuracy
+                </p>
+                <p class="text-sm mt-2" style="color: var(--text-tertiary)">
                   Order creates supportive systems. These skills create foundation for creativity.
                 </p>
               </div>
-              
+
               <div class="value-subcard p-4 rounded-lg">
                 <h4 class="font-semibold mb-1">Innovation & Expression</h4>
-                <p class="text-sm" style="color: var(--text-secondary);">Creativity, Curiosity</p>
-                <p class="text-sm mt-2" style="color: var(--text-tertiary);">
-                  Creativity sees new possibilities. Innovation finds better ways to use existing tools.
+                <p class="text-sm" style="color: var(--text-secondary)">Creativity, Curiosity</p>
+                <p class="text-sm mt-2" style="color: var(--text-tertiary)">
+                  Creativity sees new possibilities. Innovation finds better ways to use existing
+                  tools.
                 </p>
               </div>
             </div>
@@ -313,13 +381,24 @@
         </div>
 
         <!-- Note on Honesty -->
-        <div class="p-6 rounded-xl shadow-lg mb-8" style="background-color: var(--bg-secondary);">
-          <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary);">A Note on Honesty</h3>
-          <p class="mb-4" style="color: var(--text-secondary);">
-            Honesty is so often cited as a value that it almost becomes cliche. The combination of Courage and Integrity applied to honesty covers its positive aspects well. Be brave enough to share your thoughts and feelings, but also be wise enough to keep some words to yourself. Be wary of pathological transparency. The purpose of honesty is for your Integrity, to be a true version of yourself. Do that and life usually becomes less complicated and more enjoyable.
+        <div class="p-6 rounded-xl shadow-lg mb-8" style="background-color: var(--bg-secondary)">
+          <h3 class="text-xl font-bold mb-3" style="color: var(--text-primary)">
+            A Note on Honesty
+          </h3>
+          <p class="mb-4" style="color: var(--text-secondary)">
+            Honesty is so often cited as a value that it almost becomes cliche. The combination of
+            Courage and Integrity applied to honesty covers its positive aspects well. Be brave
+            enough to share your thoughts and feelings, but also be wise enough to keep some words
+            to yourself. Be wary of pathological transparency. The purpose of honesty is for your
+            Integrity, to be a true version of yourself. Do that and life usually becomes less
+            complicated and more enjoyable.
           </p>
-          <p style="color: var(--text-secondary);">
-            In the spirit of honesty, note that yes, this site was made with the assistance of AI. The underlying content: thoughts, opinions, and ideas are mine, of course. AI doesn't really have those, but it makes for one hell of a spellchecker and formatting whiz to center divs for me when I'm short on time, and while we're being honest, that's most of the time.
+          <p style="color: var(--text-secondary)">
+            In the spirit of honesty, note that yes, this site was made with the assistance of AI.
+            The underlying content: thoughts, opinions, and ideas are mine, of course. AI doesn't
+            really have those, but it makes for one hell of a spellchecker and formatting whiz to
+            center divs for me when I'm short on time, and while we're being honest, that's most of
+            the time.
           </p>
         </div>
       </section>
@@ -327,45 +406,60 @@
       <!-- Principles Section -->
       <section id="principles-section" class="content-section">
         <div class="max-w-4xl mx-auto">
-          <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--text-primary);">Principles</h2>
-          
+          <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--text-primary)">
+            Principles
+          </h2>
+
           <div class="value-card p-8 rounded-xl shadow-lg mb-8">
-            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary);">Write Things Down</h3>
-            <p class="text-lg mb-4" style="color: var(--text-secondary);">
-              The brain works better when unburdened from constant storage duty. Writing transforms fleeting thoughts into tangible assets.
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary)">
+              Write Things Down
+            </h3>
+            <p class="text-lg mb-4" style="color: var(--text-secondary)">
+              The brain works better when unburdened from constant storage duty. Writing transforms
+              fleeting thoughts into tangible assets.
             </p>
-            <p style="color: var(--text-tertiary);">
-              Every idea written down is a conversation with your future self. Documentation beats memory alone.
+            <p style="color: var(--text-tertiary)">
+              Every idea written down is a conversation with your future self. Documentation beats
+              memory alone.
             </p>
           </div>
-          
+
           <div class="value-card p-8 rounded-xl shadow-lg mb-8">
-            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary);">Effective Communication</h3>
-            <p class="text-lg mb-4" style="color: var(--text-secondary);">
-              Clear writing leads to clear thinking. Communication is the foundation of collaboration.
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary)">
+              Effective Communication
+            </h3>
+            <p class="text-lg mb-4" style="color: var(--text-secondary)">
+              Clear writing leads to clear thinking. Communication is the foundation of
+              collaboration.
             </p>
-            <p style="color: var(--text-tertiary);">
-              When we articulate ideas precisely, we create shared understanding that drives progress.
+            <p style="color: var(--text-tertiary)">
+              When we articulate ideas precisely, we create shared understanding that drives
+              progress.
             </p>
           </div>
-          
+
           <div class="value-card p-8 rounded-xl shadow-lg mb-8">
-            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary);">Thinking Clearly</h3>
-            <p class="text-lg mb-4" style="color: var(--text-secondary);">
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary)">
+              Thinking Clearly
+            </h3>
+            <p class="text-lg mb-4" style="color: var(--text-secondary)">
               Clarity comes from questioning assumptions and testing ideas against reality.
             </p>
-            <p style="color: var(--text-tertiary);">
+            <p style="color: var(--text-tertiary)">
               The discipline of clear thinking prevents wasted effort and reveals genuine insights.
             </p>
           </div>
-          
+
           <div class="value-card p-8 rounded-xl shadow-lg mb-8">
-            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary);">Documentation as Code</h3>
-            <p class="text-lg mb-4" style="color: var(--text-secondary);">
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary)">
+              Documentation as Code
+            </h3>
+            <p class="text-lg mb-4" style="color: var(--text-secondary)">
               Treat documentation with the same care as code. Both are forms of communication.
             </p>
-            <p style="color: var(--text-tertiary);">
-              Good documentation lives alongside code, evolves with it, and serves as a bridge between intention and implementation.
+            <p style="color: var(--text-tertiary)">
+              Good documentation lives alongside code, evolves with it, and serves as a bridge
+              between intention and implementation.
             </p>
           </div>
         </div>
@@ -374,105 +468,181 @@
       <!-- Brevity Section -->
       <section id="brevity-section" class="content-section">
         <div class="max-w-4xl mx-auto">
-          <h2 class="text-3xl font-bold text-center" style="color: var(--text-primary);">Brevity: Quotes & Notes</h2>
-          <h3 class="text-xl font-bold m-4 text-center" style="color: var(--text-primary);">2025-07-12</h3>
+          <h2 class="text-3xl font-bold text-center" style="color: var(--text-primary)">
+            Brevity: Quotes & Notes
+          </h2>
+          <h3 class="text-xl font-bold m-4 text-center" style="color: var(--text-primary)">
+            2025-07-12
+          </h3>
           <div class="value-card p-8 rounded-xl shadow-lg mb-8">
-            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary);">Short on Time</h3>
-            <p class="mb-4" style="color: var(--text-secondary);">
-              Mark Twain said "I didn't have time to write a short letter, so I wrote a long one instead."
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary)">
+              Short on Time
+            </h3>
+            <p class="mb-4" style="color: var(--text-secondary)">
+              Mark Twain said "I didn't have time to write a short letter, so I wrote a long one
+              instead."
             </p>
-            <p class="mb-4" style="color: var(--text-secondary);">
-              Delightful! But was he <em>first</em> to say it? With Bastille Day on Monday, I give some credit to French mathematician and philosopher Blaise Pascal, who in a letter from 1657 said:
+            <p class="mb-4" style="color: var(--text-secondary)">
+              Delightful! But was he <em>first</em> to say it? With Bastille Day on Monday, I give
+              some credit to French mathematician and philosopher Blaise Pascal, who in a letter
+              from 1657 said:
             </p>
-            <blockquote class="border-l-4 border-indigo-500 pl-4 mb-4 italic" style="color: var(--text-tertiary);">
-              "Je n'ai fait celle-ci plus longue que parce que je n'ai pas eu le loisir de la faire plus courte."
+            <blockquote
+              class="border-l-4 border-indigo-500 pl-4 mb-4 italic"
+              style="color: var(--text-tertiary)"
+            >
+              "Je n'ai fait celle-ci plus longue que parce que je n'ai pas eu le loisir de la faire
+              plus courte."
             </blockquote>
-            <p class="mb-4" style="color: var(--text-secondary);">
-              Google Translate tells me this isn't <em>exactly</em> the same. For one, the word "loisir" translates to leisure.
+            <p class="mb-4" style="color: var(--text-secondary)">
+              Google Translate tells me this isn't <em>exactly</em> the same. For one, the word
+              "loisir" translates to leisure.
             </p>
-            <p class="mb-4" style="color: var(--text-secondary);">
-              The art of Twain's delivery is great humor with simple words. Leisure is an implied luxury.
+            <p class="mb-4" style="color: var(--text-secondary)">
+              The art of Twain's delivery is great humor with simple words. Leisure is an implied
+              luxury.
             </p>
-            <p style="color: var(--text-secondary);">
+            <p style="color: var(--text-secondary)">
               I ought to leave it here for brevity, but I'm too honest. I have to show my work.
             </p>
           </div>
 
           <div class="value-card p-8 rounded-xl shadow-lg mb-8">
-            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary);">Extra Credit: Nuance</h3>
-            <p class="mb-4" style="color: var(--text-secondary);">
-              I only found the above thanks to Tania Lombrozo in an <a href="https://www.npr.org/sections/13.7/2014/02/03/270680304/this-could-have-been-shorter#:~:text=recognizing%20and%20negotiating%20the%20trade%20offs%20between%20brevity%20and%20nuance%2C%20between%20punch%20line%20and%20qualification%2C%20is%20itself%20half%20the%20value." class="text-blue-600 hover:underline">NPR article on brevity</a> where she writes, "Recognizing and negotiating the tradeoff between brevity and nuance, between punch line and qualification, is itself half the value."
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary)">
+              Extra Credit: Nuance
+            </h3>
+            <p class="mb-4" style="color: var(--text-secondary)">
+              I only found the above thanks to Tania Lombrozo in an
+              <a
+                href="https://www.npr.org/sections/13.7/2014/02/03/270680304/this-could-have-been-shorter#:~:text=recognizing%20and%20negotiating%20the%20trade%20offs%20between%20brevity%20and%20nuance%2C%20between%20punch%20line%20and%20qualification%2C%20is%20itself%20half%20the%20value."
+                class="text-blue-600 hover:underline"
+                >NPR article on brevity</a
+              >
+              where she writes, "Recognizing and negotiating the tradeoff between brevity and
+              nuance, between punch line and qualification, is itself half the value."
             </p>
-            <p class="mb-4" style="color: var(--text-secondary);">
-              Excellent point with many potential threads. Today, I'll focus on "nuance" because of its French origin.
+            <p class="mb-4" style="color: var(--text-secondary)">
+              Excellent point with many potential threads. Today, I'll focus on "nuance" because of
+              its French origin.
             </p>
-            <p class="mb-4" style="color: var(--text-secondary);">
-              Messages already reduce complex thoughts and emotions into a proxy of words, so special care must be taken to provide just enough detail to at least acknowledge the nuance related.
+            <p class="mb-4" style="color: var(--text-secondary)">
+              Messages already reduce complex thoughts and emotions into a proxy of words, so
+              special care must be taken to provide just enough detail to at least acknowledge the
+              nuance related.
             </p>
-            <p style="color: var(--text-secondary);">
-              Albert Maysles said, "Tyranny is the deliberate removal of nuance" and I think this pairs nicely with "Tyranny of choice" by Barry Schwartz in <em>The Paradox of Choice: Why More Is Less</em> (2004). Technically the latter is on too many decisions, so "Tyranny of verbosity" might be more appropriate.
+            <p style="color: var(--text-secondary)">
+              Albert Maysles said, "Tyranny is the deliberate removal of nuance" and I think this
+              pairs nicely with "Tyranny of choice" by Barry Schwartz in
+              <em>The Paradox of Choice: Why More Is Less</em> (2004). Technically the latter is on
+              too many decisions, so "Tyranny of verbosity" might be more appropriate.
             </p>
           </div>
 
           <div class="value-card p-8 rounded-xl shadow-lg mb-8">
-            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary);">Resist Tyranny and Choose Simplicity</h3>
-            <p class="mb-4" style="color: var(--text-secondary);">
-              I searched "Tyranny of verbosity" to look for existing work and was surprised to find no hits. Gemini tried and got the general idea. Unsatisfied, I tried to find quotes to at least describe the concept.
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary)">
+              Resist Tyranny and Choose Simplicity
+            </h3>
+            <p class="mb-4" style="color: var(--text-secondary)">
+              I searched "Tyranny of verbosity" to look for existing work and was surprised to find
+              no hits. Gemini tried and got the general idea. Unsatisfied, I tried to find quotes to
+              at least describe the concept.
             </p>
-            <blockquote class="border-l-4 border-indigo-500 pl-4 mb-4" style="color: var(--text-tertiary);">
-              <p class="mb-2">"I notice that you use plain, simple language, short words and brief sentences. That is the way to write English—it is the modern way and the best way. Stick to it; don't let fluff and flowers and verbosity creep in."</p>
+            <blockquote
+              class="border-l-4 border-indigo-500 pl-4 mb-4"
+              style="color: var(--text-tertiary)"
+            >
+              <p class="mb-2">
+                "I notice that you use plain, simple language, short words and brief sentences. That
+                is the way to write English—it is the modern way and the best way. Stick to it;
+                don't let fluff and flowers and verbosity creep in."
+              </p>
               <p class="text-sm font-semibold">– Mark Twain</p>
             </blockquote>
-            <p class="mb-4" style="color: var(--text-secondary);">
-              Twain strikes again. However, these are more words than I'd expect from him. Perhaps he was playing at nuance, or simply short on time.
+            <p class="mb-4" style="color: var(--text-secondary)">
+              Twain strikes again. However, these are more words than I'd expect from him. Perhaps
+              he was playing at nuance, or simply short on time.
             </p>
-            <p class="mb-4" style="color: var(--text-secondary);">
+            <p class="mb-4" style="color: var(--text-secondary)">
               For brevity, Mokokoma Mokhonoana does well:
             </p>
-            <blockquote class="border-l-4 border-indigo-500 pl-4 mb-4" style="color: var(--text-tertiary);">
+            <blockquote
+              class="border-l-4 border-indigo-500 pl-4 mb-4"
+              style="color: var(--text-tertiary)"
+            >
               "Verbosity wastes a portion of the reader's or listener's life."
             </blockquote>
-            <p style="color: var(--text-secondary);">
-              Less dramatic than "Tyranny of verbosity" but this was stated before LLMs got so big. We need better words against the oppressors of robotic language.
+            <p style="color: var(--text-secondary)">
+              Less dramatic than "Tyranny of verbosity" but this was stated before LLMs got so big.
+              We need better words against the oppressors of robotic language.
             </p>
           </div>
 
           <div class="value-card p-8 rounded-xl shadow-lg mb-8">
-            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary);">Why Say Anything at All?</h3>
-            <p class="mb-4" style="color: var(--text-secondary);">
-              There's a scene from <em>The Old Man</em> where Dan Chase (played by Jeff Bridges) shares a story about a wise man who refused to speak.
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary)">
+              Why Say Anything at All?
+            </h3>
+            <p class="mb-4" style="color: var(--text-secondary)">
+              There's a scene from <em>The Old Man</em> where Dan Chase (played by Jeff Bridges)
+              shares a story about a wise man who refused to speak.
             </p>
-            <blockquote class="border-l-4 border-indigo-500 pl-4 mb-4" style="color: var(--text-tertiary);">
-              "...because he believed that language deceived. That by its very nature, it clouded the truth, so it made the world harder to know. And, uh, this... this wise old man, he believed that the truth... the truth lived only in silence."
+            <blockquote
+              class="border-l-4 border-indigo-500 pl-4 mb-4"
+              style="color: var(--text-tertiary)"
+            >
+              "...because he believed that language deceived. That by its very nature, it clouded
+              the truth, so it made the world harder to know. And, uh, this... this wise old man, he
+              believed that the truth... the truth lived only in silence."
             </blockquote>
-            <p class="mb-4" style="color: var(--text-secondary);">
-              I love Bridges's poignant (and ironically verbose) portrayal of the <a href="https://en.wikipedia.org/wiki/Speech_is_silver,_silence_is_golden" class="text-blue-600 hover:underline">speech is silver, silence is golden</a> proverb.
+            <p class="mb-4" style="color: var(--text-secondary)">
+              I love Bridges's poignant (and ironically verbose) portrayal of the
+              <a
+                href="https://en.wikipedia.org/wiki/Speech_is_silver,_silence_is_golden"
+                class="text-blue-600 hover:underline"
+                >speech is silver, silence is golden</a
+              >
+              proverb.
             </p>
-            <p class="mb-4" style="color: var(--text-secondary);">
-              There is certainly wisdom here, but most of us cannot live that way. We don't all have the luxury to always remain silent. Doing so can sometimes allow unfortunate events to occur. Of course, actions speak louder than words, and yet we still must express ourselves, share our ideas, and communicate through other means when action alone is insufficient.
+            <p class="mb-4" style="color: var(--text-secondary)">
+              There is certainly wisdom here, but most of us cannot live that way. We don't all have
+              the luxury to always remain silent. Doing so can sometimes allow unfortunate events to
+              occur. Of course, actions speak louder than words, and yet we still must express
+              ourselves, share our ideas, and communicate through other means when action alone is
+              insufficient.
             </p>
-            <p class="mb-4" style="color: var(--text-secondary);">
-              Einstein is credited with saying, "Make things as simple as possible, but no simpler." <sup>1</sup>
+            <p class="mb-4" style="color: var(--text-secondary)">
+              Einstein is credited with saying, "Make things as simple as possible, but no simpler."
+              <sup>1</sup>
             </p>
-            <p style="color: var(--text-secondary);">
-              That seems like a good target. I'm no Einstein, so I'm sure there's a simpler way to put this. Since a haiku would be too reductive, I'll just leave this here:
+            <p style="color: var(--text-secondary)">
+              That seems like a good target. I'm no Einstein, so I'm sure there's a simpler way to
+              put this. Since a haiku would be too reductive, I'll just leave this here:
             </p>
             <div class="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg mt-4 mb-4">
-              <div class="text-center text-gray-700 dark:text-gray-200" style="line-height: 1.8;">
+              <div class="text-center text-gray-700 dark:text-gray-200" style="line-height: 1.8">
                 <p>Aim to be brief</p>
                 <p>Grant readers relief</p>
                 <p>Resist tyranny of extremes</p>
                 <p>Choose liberty in between</p>
-                <br>
+                <br />
                 <p>Say what you must</p>
                 <p>Protect the trust</p>
                 <p>Be kind and true</p>
                 <p>Let you do you</p>
               </div>
             </div>
-            <div class="mt-8 pt-4 border-t" style="border-color: var(--border-color);">
-              <p class="text-sm" style="color: var(--text-tertiary);">
-                <sup>1</sup> <em>In fairness, <a href="https://quoteinvestigator.com/2011/05/13/einstein-simple/" class="text-blue-600 hover:underline">Quote Investigator</a> quibbles about the precise origins of this Einstein quote, but time is both limited and relative. Do as you must.</em>
+            <div class="mt-8 pt-4 border-t" style="border-color: var(--border-color)">
+              <p class="text-sm" style="color: var(--text-tertiary)">
+                <sup>1</sup>
+                <em
+                  >In fairness,
+                  <a
+                    href="https://quoteinvestigator.com/2011/05/13/einstein-simple/"
+                    class="text-blue-600 hover:underline"
+                    >Quote Investigator</a
+                  >
+                  quibbles about the precise origins of this Einstein quote, but time is both
+                  limited and relative. Do as you must.</em
+                >
               </p>
             </div>
           </div>
@@ -481,19 +651,26 @@
 
       <!-- About Section -->
       <section id="thoughts-section" class="content-section">
-        <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--text-primary);">About</h2>
-        
+        <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--text-primary)">
+          About
+        </h2>
+
         <div class="max-w-4xl mx-auto">
           <div class="value-card p-8 rounded-xl shadow-lg">
-            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary);">Why This Site</h3>
-            <p class="text-lg mb-4" style="color: var(--text-secondary);">
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary)">
+              Why This Site
+            </h3>
+            <p class="text-lg mb-4" style="color: var(--text-secondary)">
               A place to capture and share what matters. Building in public creates accountability.
             </p>
-            <p class="mb-4" style="color: var(--text-secondary);">
-              This site serves as both a personal reference and a public declaration. It's easier to stay true to values when they're written down and shared. The act of organizing thoughts clarifies them.
+            <p class="mb-4" style="color: var(--text-secondary)">
+              This site serves as both a personal reference and a public declaration. It's easier to
+              stay true to values when they're written down and shared. The act of organizing
+              thoughts clarifies them.
             </p>
-            <p style="color: var(--text-tertiary);">
-              Each page represents an ongoing conversation with ideas. Nothing here is final. Everything evolves through use and reflection.
+            <p style="color: var(--text-tertiary)">
+              Each page represents an ongoing conversation with ideas. Nothing here is final.
+              Everything evolves through use and reflection.
             </p>
           </div>
         </div>
@@ -501,28 +678,34 @@
 
       <!-- Virtues Section -->
       <section id="virtues-section" class="content-section">
-        <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--text-primary);">Virtues</h2>
-        
+        <h2 class="text-3xl font-bold mb-8 text-center" style="color: var(--text-primary)">
+          Virtues
+        </h2>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           <div class="value-card p-6 rounded-xl shadow-lg">
-            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary);">Marcus Aurelius Virtues</h3>
-            <p class="mb-4" style="color: var(--text-secondary);">
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary)">
+              Marcus Aurelius Virtues
+            </h3>
+            <p class="mb-4" style="color: var(--text-secondary)">
               Timeless wisdom from Stoic philosophy applicable to modern life and work.
             </p>
-            <ul class="space-y-2 text-sm" style="color: var(--text-tertiary);">
+            <ul class="space-y-2 text-sm" style="color: var(--text-tertiary)">
               <li>• Wisdom: The pursuit of knowledge and understanding</li>
               <li>• Justice: Treating others fairly and with respect</li>
               <li>• Courage: Facing challenges with determination</li>
               <li>• Temperance: Practicing moderation and self-control</li>
             </ul>
           </div>
-          
+
           <div class="value-card p-6 rounded-xl shadow-lg">
-            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary);">Virtues of a Programmer</h3>
-            <p class="mb-4" style="color: var(--text-secondary);">
+            <h3 class="text-2xl font-bold mb-4" style="color: var(--text-primary)">
+              Virtues of a Programmer
+            </h3>
+            <p class="mb-4" style="color: var(--text-secondary)">
               Larry Wall's three great virtues that make a great programmer.
             </p>
-            <ul class="space-y-2 text-sm" style="color: var(--text-tertiary);">
+            <ul class="space-y-2 text-sm" style="color: var(--text-tertiary)">
               <li>• Laziness: The quality that drives you to reduce overall effort</li>
               <li>• Impatience: The anger you feel when the computer is being lazy</li>
               <li>• Hubris: Excessive pride that makes you write maintainable programs</li>
@@ -531,82 +714,83 @@
         </div>
       </section>
 
-      <footer class="text-center mt-12 pt-8 border-t text-sm" style="border-color: var(--border-color); color: var(--text-tertiary);">
-        <p>
-          &copy; 2025 Personal Development - Part of Code & Context
-        </p>
+      <footer
+        class="text-center mt-12 pt-8 border-t text-sm"
+        style="border-color: var(--border-color); color: var(--text-tertiary)"
+      >
+        <p>&copy; 2025 Personal Development - Part of Code & Context</p>
       </footer>
     </div>
-    
+
     <script>
       // Tab switching functionality
       function showSection(section, updateUrl = true) {
         // Hide all sections
-        document.querySelectorAll('.content-section').forEach(el => {
-          el.classList.remove('active');
+        document.querySelectorAll(".content-section").forEach((el) => {
+          el.classList.remove("active");
         });
-        
+
         // Remove active class from all tabs
-        document.querySelectorAll('.tab-button').forEach(el => {
-          el.classList.remove('active');
+        document.querySelectorAll(".tab-button").forEach((el) => {
+          el.classList.remove("active");
         });
-        
+
         // Show selected section
-        const sectionEl = document.getElementById(section + '-section');
+        const sectionEl = document.getElementById(section + "-section");
         if (sectionEl) {
-          sectionEl.classList.add('active');
+          sectionEl.classList.add("active");
         }
 
         // Add active class to corresponding tab button
         const tabButton = document.querySelector(`button[onclick="showSection('${section}')"]`);
         if (tabButton) {
-          tabButton.classList.add('active');
+          tabButton.classList.add("active");
         }
-        
+
         // Update URL if requested
         if (updateUrl) {
           const url = new URL(window.location);
-          url.searchParams.set('tab', section);
-          window.history.pushState({}, '', url);
+          url.searchParams.set("tab", section);
+          window.history.pushState({}, "", url);
         }
       }
 
       // Theme toggle functionality
       function getThemePreference() {
-        const savedTheme = localStorage.getItem('theme');
+        const savedTheme = localStorage.getItem("theme");
         if (savedTheme) {
           return savedTheme;
         }
-        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
       }
 
       function applyTheme(theme) {
         const root = document.documentElement;
-        if (theme === 'dark') {
-          root.classList.add('dark');
+        if (theme === "dark") {
+          root.classList.add("dark");
         } else {
-          root.classList.remove('dark');
+          root.classList.remove("dark");
         }
       }
 
       function toggleTheme() {
         const root = document.documentElement;
-        const currentTheme = root.classList.contains('dark') ? 'dark' : 'light';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
+        const currentTheme = root.classList.contains("dark") ? "dark" : "light";
+        const newTheme = currentTheme === "dark" ? "light" : "dark";
+
         applyTheme(newTheme);
-        localStorage.setItem('theme', newTheme);
+        localStorage.setItem("theme", newTheme);
       }
 
       // Initialize theme on page load
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener("DOMContentLoaded", function () {
         const theme = getThemePreference();
         applyTheme(theme);
-        
+
         // Check for tab parameter in URL
         const urlParams = new URLSearchParams(window.location.search);
-        const tabParam = urlParams.get('tab');
-        
+        const tabParam = urlParams.get("tab");
+
         if (tabParam) {
           // Show the requested tab
           showSection(tabParam, false);
@@ -614,9 +798,9 @@
       });
 
       // Listen for system theme changes
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-        if (!localStorage.getItem('theme')) {
-          applyTheme(e.matches ? 'dark' : 'light');
+      window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (e) {
+        if (!localStorage.getItem("theme")) {
+          applyTheme(e.matches ? "dark" : "light");
         }
       });
     </script>
