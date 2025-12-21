@@ -5,7 +5,7 @@ A centralized repository for shared content on personal development, interface d
 ## Overview
 
 This repository serves as a home base for various knowledge resources and documentation, bringing together content from:
-- Personal development principles and values
+- Personal principles and values
 - Programming interface design best practices
 - Technical debt management strategies
 
@@ -54,7 +54,7 @@ git submodule update --remote
 
 ## Content Areas
 
-### Personal Development
+### Personal
 Explores values, principles, and practices for effective work and life, including:
 - Core values and guiding principles
 - Thoughts on communication and clear thinking
